@@ -25,7 +25,7 @@ body {
     /* Лучший вариант для читаемости */
     background: 
         linear-gradient(rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.9)),
-        url(https://raw.githubusercontent.com/warum1l/WOPTIMIZATIONSITE/main/img/lockscreen_dark.png) no-repeat center center;
+        url(https://github.com/warum1l/WOPTIMIZATIONSITE/blob/main/img/lockscreen_dark.png?raw=true) no-repeat center center;
     background-color: var(--primary-dark);
 }
 
@@ -1020,5 +1020,6 @@ footer {
         justify-content: center;
     }
 }
+
 
 
