@@ -7,185 +7,225 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Lightbox styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 9999;
+            flex-direction: column;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .lightbox p {
+            color: #fff;
+            margin-top: 1rem;
+            font-size: 1rem;
+            text-align: center;
+            max-width: 90%;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="index.html">WOptimization</a>
-                </div>
-                <div class="nav-menu">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="features.html" class="nav-link">Features</a>
-                    <a href="about.html" class="nav-link">About</a>
-                    <a href="download.html" class="nav-link">Download</a>
-                </div>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
+<header>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">WOptimization</a>
             </div>
-        </nav>
-    </header>
-
-    <main>
-        <section class="page-hero">
-            <div class="container">
-                <h1 class="animate-fade-in">Features</h1>
-                <p class="animate-fade-in-delay">Discover the powerful capabilities of our optimization tools</p>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="features.html" class="nav-link">Features</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="download.html" class="nav-link">Download</a>
             </div>
-        </section>
-
-        <section class="features-detail">
-            <div class="container">
-                <div class="feature-tabs">
-                    <div class="tab-buttons">
-                        <button class="tab-btn active" data-tab="wtweaker">WTweaker</button>
-                        
-                    </div>
-                    
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="wtweaker">
-                            <div class="feature-grid">
-                                <div class="feature-card reveal">
-                                    <div class="feature-icon">
-                                        <i class="fas fa-tachometer-alt"></i>
-                                    </div>
-                                    <h3>Performance Tweaks</h3>
-                                    <p>Optimize system settings for maximum performance and responsiveness.</p>
-                                </div>
-                                <div class="feature-card reveal">
-                                    <div class="feature-icon">
-                                        <i class="fas fa-shield-alt"></i>
-                                    </div>
-                                    <h3>Privacy Protection</h3>
-                                    <p>Disable telemetry and data collection features to protect your privacy.</p>
-                                </div>
-                                <div class="feature-card reveal">
-                                    <div class="feature-icon">
-                                        <i class="fas fa-ban"></i>
-                                    </div>
-                                    <h3>Bloatware Removal</h3>
-                                    <p>Remove unnecessary pre-installed apps and Windows features.</p>
-                                </div>
-                                <div class="feature-card reveal">
-                                    <div class="feature-icon">
-                                        <i class="fas fa-wrench"></i>
-                                    </div>
-                                    <h3>Customization</h3>
-                                    <p>Customize Windows appearance and behavior to your preferences.</p>
-                                </div>
-                                <div class="feature-card reveal">
-                                    <div class="feature-icon">
-                                        <i class="fas fa-undo"></i>
-                                    </div>
-                                    <h3>Backup & Restore</h3>
-                                    <p>Create backups of your system settings before making changes.</p>
-                                </div>
-                                <div class="feature-card reveal">
-                                    <div class="feature-icon">
-                                        <i class="fas fa-cogs"></i>
-                                    </div>
-                                    <h3>Advanced Tweaks</h3>
-                                    <p>Access advanced system settings not available in the standard UI.</p>
-                                </div>
-                            </div>
-                        </div>
-                   
-     
-        </section>
-
-
-                         <!-- Screenshots Section for WTweaker -->
-        <section class="screenshots-section">
-            <div class="container">
-                <h2 class="text-center">WTweaker in Action</h2>
-                <p class="text-center section-subtitle">See how WTweaker helps you optimize and customize Windows with ease</p>
-
-                <div class="screenshots-grid">
-                    <div class="screenshot-card reveal">
-                        <img src="img/wtweakerdash.png" alt="WTweaker Dashboard" class="clickable-img">
-                        <p>Main dashboard — quick access to tweaks, privacy, and cleanup tools.</p>
-                    </div>
-                    <div class="screenshot-card reveal">
-                        <img src="img/wtweakerperf.png" alt="Performance Tweaks" class="clickable-img">
-                        <p>Performance tweaks tab — disable unnecessary services and boost responsiveness.</p>
-                    </div>
-                    <div class="screenshot-card reveal">
-                        <img src="img/wtweakerpriv.png" alt="Privacy Control" class="clickable-img">
-                        <p>Privacy control — manage telemetry and data collection with one click.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <div class="container">
-                <h2>Ready to Experience These Features?</h2>
-                <p>Download our optimization tools today and unleash the full potential of your Windows system.</p>
-                <a href="download.html" class="btn-primary">Download Now</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>WOptimization</h3>
-                    <p>Tools designed to maximize your Windows experience.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="features.html">Features</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="download.html">Download</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Products</h4>
-                    <ul>
-                        <li><a href="#">WTweaker</a></li>
-                        <li><a href="#">WOptimizer</a></li>
-                        <li><a href="utilities.html">Utilities</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-discord"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 WOptimization. All rights reserved.</p>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
-    </footer>
+    </nav>
+</header>
 
-    <script src="js/script.js"></script>
-    <script src="js/features.js"></script>
+<main>
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="animate-fade-in">Features</h1>
+            <p class="animate-fade-in-delay">Discover the powerful capabilities of our optimization tools</p>
+        </div>
+    </section>
 
+    <section class="features-detail">
+        <div class="container">
+            <div class="feature-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="wtweaker">WTweaker</button>
+                </div>
 
-                        <script>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="wtweaker">
+                        <div class="feature-grid">
+                            <div class="feature-card reveal">
+                                <div class="feature-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                <h3>Performance Tweaks</h3>
+                                <p>Optimize system settings for maximum performance and responsiveness.</p>
+                            </div>
+                            <div class="feature-card reveal">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3>Privacy Protection</h3>
+                                <p>Disable telemetry and data collection features to protect your privacy.</p>
+                            </div>
+                            <div class="feature-card reveal">
+                                <div class="feature-icon">
+                                    <i class="fas fa-ban"></i>
+                                </div>
+                                <h3>Bloatware Removal</h3>
+                                <p>Remove unnecessary pre-installed apps and Windows features.</p>
+                            </div>
+                            <div class="feature-card reveal">
+                                <div class="feature-icon">
+                                    <i class="fas fa-wrench"></i>
+                                </div>
+                                <h3>Customization</h3>
+                                <p>Customize Windows appearance and behavior to your preferences.</p>
+                            </div>
+                            <div class="feature-card reveal">
+                                <div class="feature-icon">
+                                    <i class="fas fa-undo"></i>
+                                </div>
+                                <h3>Backup & Restore</h3>
+                                <p>Create backups of your system settings before making changes.</p>
+                            </div>
+                            <div class="feature-card reveal">
+                                <div class="feature-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h3>Advanced Tweaks</h3>
+                                <p>Access advanced system settings not available in the standard UI.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section for WTweaker -->
+    <section class="screenshots-section">
+        <div class="container">
+            <h2 class="text-center">WTweaker in Action</h2>
+            <p class="text-center section-subtitle">See how WTweaker helps you optimize and customize Windows with ease</p>
+
+            <div class="screenshots-grid">
+                <div class="screenshot-card reveal">
+                    <img src="img/wtweakerdash.png" alt="WTweaker Dashboard" class="clickable-img" data-caption="Main dashboard — quick access to tweaks, privacy, and cleanup tools.">
+                    <p>Main dashboard — quick access to tweaks, privacy, and cleanup tools.</p>
+                </div>
+                <div class="screenshot-card reveal">
+                    <img src="img/wtweakerperf.png" alt="Performance Tweaks" class="clickable-img" data-caption="Performance tweaks tab — disable unnecessary services and boost responsiveness.">
+                    <p>Performance tweaks tab — disable unnecessary services and boost responsiveness.</p>
+                </div>
+                <div class="screenshot-card reveal">
+                    <img src="img/wtweakerpriv.png" alt="Privacy Control" class="clickable-img" data-caption="Privacy control — manage telemetry and data collection with one click.">
+                    <p>Privacy control — manage telemetry and data collection with one click.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Experience These Features?</h2>
+            <p>Download our optimization tools today and unleash the full potential of your Windows system.</p>
+            <a href="download.html" class="btn-primary">Download Now</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>WOptimization</h3>
+                <p>Tools designed to maximize your Windows experience.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="download.html">Download</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#">WTweaker</a></li>
+                    <li><a href="#">WOptimizer</a></li>
+                    <li><a href="utilities.html">Utilities</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 WOptimization. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+    <img src="" alt="">
+    <p></p>
+</div>
+
+<script src="js/script.js"></script>
+<script src="js/features.js"></script>
+<script>
     // Lightbox script
     const images = document.querySelectorAll('.clickable-img');
-    const lightbox = document.createElement('div');
-    lightbox.classList.add('lightbox');
-    document.body.appendChild(lightbox);
-
-    const img = document.createElement('img');
-    lightbox.appendChild(img);
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const lightboxCaption = lightbox.querySelector('p');
 
     images.forEach(image => {
         image.addEventListener('click', () => {
-            img.src = image.src;
+            lightboxImg.src = image.src;
+            lightboxCaption.textContent = image.dataset.caption;
             lightbox.classList.add('active');
         });
     });
@@ -194,9 +234,5 @@
         lightbox.classList.remove('active');
     });
 </script>
-
 </body>
-
 </html>
-
-
