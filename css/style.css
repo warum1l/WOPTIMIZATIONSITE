@@ -1103,10 +1103,11 @@ footer {
 
 
 
-/* WTweaker Screenshots Section */
+/* --- Screenshots Section --- */
 .screenshots-section {
-    padding: 5rem 0;
+    padding: 6rem 0;
     background: rgba(255, 255, 255, 0.02);
+    margin-top: 4rem; /* добавлен отступ от карточек */
 }
 
 .section-subtitle {
@@ -1136,6 +1137,7 @@ footer {
     width: 100%;
     height: auto;
     display: block;
+    cursor: pointer; /* теперь кликабельно */
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -1148,5 +1150,41 @@ footer {
 .screenshot-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 10px 25px rgba(58, 107, 201, 0.3);
+}
+
+/* --- Lightbox (открытие скрина) --- */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+    cursor: zoom-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
 }
 
