@@ -171,7 +171,32 @@
 
     <script src="js/script.js"></script>
     <script src="js/features.js"></script>
+
+
+                        <script>
+    // Lightbox script
+    const images = document.querySelectorAll('.clickable-img');
+    const lightbox = document.createElement('div');
+    lightbox.classList.add('lightbox');
+    document.body.appendChild(lightbox);
+
+    const img = document.createElement('img');
+    lightbox.appendChild(img);
+
+    images.forEach(image => {
+        image.addEventListener('click', () => {
+            img.src = image.src;
+            lightbox.classList.add('active');
+        });
+    });
+
+    lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+    });
+</script>
+
 </body>
 
 </html>
+
 
