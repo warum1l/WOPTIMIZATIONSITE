@@ -1021,5 +1021,61 @@ footer {
     }
 }
 
+/* Donate Page */
+.donate-section {
+    padding: 5rem 0;
+    text-align: center;
+    background: rgba(10, 17, 40, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.donate-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.donate-text {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.donate-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.donate-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.donate-btn i {
+    font-size: 1.2rem;
+}
+
+.donate-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(58, 107, 201, 0.4);
+}
+
+.donate-note {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
 
 
