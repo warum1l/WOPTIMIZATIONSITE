@@ -1153,5 +1153,43 @@ footer {
 }
 
 
+/* Button: View All Versions */
+.btn-all-versions {
+    display: inline-block;
+    background-color: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: 1rem auto;
+}
+
+.btn-all-versions:hover {
+    background-color: var(--accent-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+/* Center version blocks */
+.version-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 5rem 0;
+}
+
+/* Make sure footer matches full site footer */
+.versions-footer {
+    background: var(--primary-dark);
+    padding: 3rem 0 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 
 
