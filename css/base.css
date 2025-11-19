@@ -1,0 +1,90 @@
+/* -----------------------------------------------------
+   BASE.CSS — Базовые стили, переменные, reset, body
+------------------------------------------------------ */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Плавный переход для темы */
+html,
+body,
+* {
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+/* =============== CSS VARIABLES =============== */
+/* Тёмная тема по умолчанию */
+:root {
+    --primary-dark: #0a1128;
+    --primary: #0f1b3d;
+    --primary-light: #1a2c5c;
+
+    --secondary: #2d4a8e;
+
+    --accent: #3a6bc9;
+    --accent-light: #5a8de6;
+
+    --text: #e6f0ff;
+    --text-secondary: #b3c9f0;
+
+    --glass-bg: rgba(255,255,255,0.06);
+    --glass-border: rgba(255,255,255,0.12);
+}
+
+/* Автоматически используем системную тему */
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+        --primary-dark: #e9eef9;
+        --primary: #f3f5fb;
+        --primary-light: #ffffff;
+
+        --secondary: #d1d8ee;
+
+        --accent: #2f5cc8;
+        --accent-light: #4d7fff;
+
+        --text: #1a2c5c;
+        --text-secondary: #4c5e88;
+
+        --glass-bg: rgba(0,0,0,0.04);
+        --glass-border: rgba(0,0,0,0.07);
+    }
+}
+
+/* LIGHT THEME MANUAL */
+[data-theme="light"] {
+    --primary-dark: #e9eef9;
+    --primary: #f3f5fb;
+    --primary-light: #ffffff;
+
+    --secondary: #d1d8ee;
+
+    --accent: #2f5cc8;
+    --accent-light: #4d7fff;
+
+    --text: #1a2c5c;
+    --text-secondary: #4c5e88;
+
+    --glass-bg: rgba(0,0,0,0.04);
+    --glass-border: rgba(0,0,0,0.07);
+}
+
+/* Body */
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--primary-dark);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.5;
+}
