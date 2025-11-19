@@ -86,16 +86,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    const toggle = document.getElementById("themeToggle");
 
-    const saved = localStorage.getItem("theme");
-    if (saved) document.documentElement.setAttribute("data-theme", saved);
-
-    toggle.addEventListener("click", () => {
-        const current = document.documentElement.getAttribute("data-theme");
-        const next = current === "light" ? "dark" : "light";
-        document.documentElement.setAttribute("data-theme", next);
-        localStorage.setItem("theme", next);
-    });
-});
