@@ -1,0 +1,68 @@
+/* -----------------------------------------------------
+   COMPONENTS.CSS — кнопки, карточки, утилиты, эффекты
+------------------------------------------------------ */
+
+/* GLASS UTILITY */
+.glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
+    transition: 0.25s ease;
+}
+
+.btn-primary {
+    background: var(--accent);
+}
+
+.btn-primary:hover {
+    background: var(--accent-light);
+}
+
+.btn-secondary {
+    background: var(--secondary);
+}
+
+.btn-secondary:hover {
+    filter: brightness(1.15);
+}
+
+/* THEME BUTTON */
+.theme-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 1.3rem;
+    transition: 0.25s ease;
+}
+
+.theme-btn:hover {
+    color: var(--accent-light);
+}
+
+/* CARD */
+.card {
+    border-radius: 15px;
+    padding: 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+/* IMAGES */
+img {
+    max-width: 100%;
+    border-radius: 12px;
+    display: block;
+}
