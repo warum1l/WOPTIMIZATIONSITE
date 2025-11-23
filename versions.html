@@ -8,19 +8,23 @@
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* Additional styles specific to versions page */
+        /* Page Specific Styles */
         .versions-section {
             padding: 5rem 0;
         }
-        
+
         .versions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
             justify-items: center;
+
+            /* NEW — make cards go RIGHT -> LEFT */
+            direction: rtl;
         }
-        
+
         .version-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -30,85 +34,88 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             max-width: 400px;
             width: 100%;
+
+            /* Prevent text from also flipping RTL */
+            direction: ltr;
         }
-        
+
         .version-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
-        
+
         .version-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1.5rem;
         }
-        
+
         .version-title {
             font-size: 1.5rem;
             font-weight: 600;
         }
-        
+
         .version-badge {
             padding: 0.3rem 0.8rem;
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 600;
         }
-        
+
         .badge-beta {
             background: rgba(255, 193, 7, 0.2);
             color: #FFC107;
         }
-        
+
         .version-info {
             margin-bottom: 1.5rem;
         }
-        
+
         .version-date {
             color: var(--text-secondary);
             font-size: 0.9rem;
             margin-bottom: 0.5rem;
         }
-        
+
         .version-description {
             color: var(--text-secondary);
             line-height: 1.5;
             margin-bottom: 1rem;
         }
-        
+
         .version-features {
             margin-bottom: 1.5rem;
         }
-        
+
         .version-features h4 {
             margin-bottom: 0.8rem;
             font-size: 1rem;
         }
-        
+
         .features-list {
             list-style: none;
         }
-        
+
         .features-list li {
             margin-bottom: 0.5rem;
             display: flex;
             align-items: flex-start;
         }
-        
+
         .features-list i {
             color: var(--accent);
             margin-right: 0.8rem;
             margin-top: 0.2rem;
             flex-shrink: 0;
         }
-        
+
         .version-download {
             display: flex;
             flex-direction: column;
             gap: 0.8rem;
         }
-        
+
         .btn-version {
             display: block;
             text-align: center;
@@ -118,178 +125,188 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-primary-version {
             background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
             color: white;
         }
-        
+
         .btn-primary-version:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(58, 107, 201, 0.3);
         }
-        
+
         .btn-secondary-version {
             background: rgba(255, 255, 255, 0.05);
             color: var(--text);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .btn-secondary-version:hover {
             background: rgba(255, 255, 255, 0.1);
         }
-        
+
         @media (max-width: 768px) {
             .versions-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .version-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
+                direction: ltr; /* Mobile should be normal */
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="index.html">WOptimization</a>
-                </div>
-                <div class="nav-menu">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="features.html" class="nav-link">Features</a>
-                    <a href="about.html" class="nav-link">About</a>
-                    <a href="download.html" class="nav-link">Download</a>
-                </div>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <main>
-        <section class="page-hero">
-            <div class="container">
-                <h1 class="animate-fade-in">All Versions</h1>
-                <p class="animate-fade-in-delay">Browse and download all available versions of our software</p>
+<header>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">WOptimization</a>
             </div>
-        </section>
 
-        <section class="versions-section">
-            <div class="container">
-                <div class="versions-grid">
-                    <!-- Version 1.3 (Beta) -->
-                    <div class="version-card">
-                        <div class="version-header">
-                            <h3 class="version-title">WTweaker 1.3</h3>
-                            <span class="version-badge badge-beta">Beta</span>
-                        </div>
-                        <div class="version-info">
-                            <div class="version-date">Released: November 1, 2025</div>
-                            <p class="version-description">Beta release with enhanced performance tweaks and new customization options.</p>
-                        </div>
-                        <div class="version-features">
-                            <h4>New Features:</h4>
-                            <ul class="features-list">
-                                <li><i class="fas fa-check"></i> Advanced system performance optimization</li>
-                                <li><i class="fas fa-check"></i> Enhanced privacy protection settings</li>
-                                <li><i class="fas fa-check"></i> Improved bloatware removal tool</li>
-                                
-                            </ul>
-                        </div>
-                        <div class="version-download">
-                            <a href="https://github.com/warum1l/WTweaker/releases/download/v1.3/WTweaker.zip" 
-                               class="btn-version btn-primary-version" 
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                <i class="fas fa-download"></i> Download WTweaker 1.3
-                            </a>
-                            <a href="#" class="btn-version btn-secondary-version">
-                                <i class="fas fa-file-alt"></i> Release Notes
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="features.html" class="nav-link">Features</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="download.html" class="nav-link">Download</a>
             </div>
-            <div class="version-card">
-                        <div class="version-header">
-                            <h3 class="version-title">WTweaker 1.6</h3>
-                            <span class="version-badge badge-beta">Latest</span>
-                        </div>
-                        <div class="version-info">
-                            <div class="version-date">Released: November 23, 2025</div>
-                            <p class="version-description">Beta release with enhanced performance tweaks and new customization options.</p>
-                        </div>
-                        <div class="version-features">
-                            <h4>New Features:</h4>
-                            <ul class="features-list">
-                                <li><i class="fas fa-check"></i> Advanced system performance optimization</li>
-                                <li><i class="fas fa-check"></i> Enhanced privacy protection settings</li>
-                                <li><i class="fas fa-check"></i> Improved bloatware removal tool</li>
-                                
-                            </ul>
-                        </div>
-                        <div class="version-download">
-                            <a href="https://github.com/warum1l/WTweaker/releases/download/v1.6/WTweaker.zip" 
-                               class="btn-version btn-primary-version" 
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                <i class="fas fa-download"></i> Download WTweaker 1.6
-                            </a>
-                            <a href="#" class="btn-version btn-secondary-version">
-                                <i class="fas fa-file-alt"></i> Release Notes
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>WOptimization</h3>
-                    <p>Tools designed to maximize your Windows experience.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="features.html">Features</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="download.html">Download</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Products</h4>
-                    <ul>
-                        <li><a href="#">WTweaker</a></li>
-                        <li><a href="#">WOptimizer</a></li>
-                        <li><a href="utilities.html">Utilities</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-discord"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 WOptimization. All rights reserved.</p>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
-    </footer>
+    </nav>
+</header>
+
+<main>
+
+<section class="page-hero">
+    <div class="container">
+        <h1 class="animate-fade-in">All Versions</h1>
+        <p class="animate-fade-in-delay">Browse and download all available versions of our software</p>
+    </div>
+</section>
+
+<section class="versions-section">
+    <div class="container">
+
+        <div class="versions-grid">
+
+            <!-- Version 1.6 (Latest) -->
+            <div class="version-card">
+                <div class="version-header">
+                    <h3 class="version-title">WTweaker 1.6</h3>
+                    <span class="version-badge badge-beta">Latest</span>
+                </div>
+
+                <div class="version-info">
+                    <div class="version-date">Released: November 23, 2025</div>
+                    <p class="version-description">Latest release with improved optimization and bug fixes.</p>
+                </div>
+
+                <div class="version-features">
+                    <h4>New Features:</h4>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Improved startup boost module</li>
+                        <li><i class="fas fa-check"></i> Enhanced debloat engine</li>
+                        <li><i class="fas fa-check"></i> Updated security tweaks</li>
+                    </ul>
+                </div>
+
+                <div class="version-download">
+                    <a href="https://github.com/warum1l/WTweaker/releases/download/v1.6/WTweaker.zip" 
+                       class="btn-version btn-primary-version" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-download"></i> Download WTweaker 1.6
+                    </a>
+                    <a href="#" class="btn-version btn-secondary-version">
+                        <i class="fas fa-file-alt"></i> Release Notes
+                    </a>
+                </div>
+            </div>
+
+            <!-- Version 1.3 (Beta) -->
+            <div class="version-card">
+                <div class="version-header">
+                    <h3 class="version-title">WTweaker 1.3</h3>
+                    <span class="version-badge badge-beta">Beta</span>
+                </div>
+
+                <div class="version-info">
+                    <div class="version-date">Released: November 1, 2025</div>
+                    <p class="version-description">Experimental beta with new customization features.</p>
+                </div>
+
+                <div class="version-features">
+                    <h4>New Features:</h4>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Advanced performance optimization</li>
+                        <li><i class="fas fa-check"></i> Bloatware removal engine v2</li>
+                        <li><i class="fas fa-check"></i> Privacy protection mode</li>
+                    </ul>
+                </div>
+
+                <div class="version-download">
+                    <a href="https://github.com/warum1l/WTweaker/releases/download/v1.3/WTweaker.zip" 
+                       class="btn-version btn-primary-version" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-download"></i> Download WTweaker 1.3
+                    </a>
+                    <a href="#" class="btn-version btn-secondary-version">
+                        <i class="fas fa-file-alt"></i> Release Notes
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+
+            <div class="footer-section">
+                <h3>WOptimization</h3>
+                <p>Tools designed to maximize your Windows experience.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="download.html">Download</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#">WTweaker</a></li>
+                    <li><a href="#">WOptimizer</a></li>
+                    <li><a href="utilities.html">Utilities</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 WOptimization. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>
