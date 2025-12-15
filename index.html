@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WOPTIMIZATION</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a.active {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .card h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .card p {
+            line-height: 1.8;
+            color: #cccccc;
+            margin-bottom: 1rem;
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .download-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .download-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .download-card p {
+            color: #cccccc;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #e0e0e0;
+            transform: scale(1.05);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #cccccc;
+        }
+
+        .feature-list li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #888888;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">WOPTIMIZATION</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" onclick="showPage('home')">Home</a></li>
+                <li><a href="#about" class="nav-link" onclick="showPage('about')">About</a></li>
+                <li><a href="#download" class="nav-link" onclick="showPage('download')">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="hero">
+                <h1>WOPTIMIZATION</h1>
+                <p>Optimize your Windows experience with WTweaker</p>
+            </div>
+
+            <div class="card">
+                <h2>Welcome to WOPTIMIZATION</h2>
+                <p>Your trusted source for Windows optimization tools. WTweaker helps you unlock the full potential of your Windows system with powerful tweaking capabilities.</p>
+                <p>Choose between our stable release for reliable performance or experimental builds for cutting-edge features.</p>
+            </div>
+
+            <div class="card" style="text-align: center;">
+                <h2>Get Started</h2>
+                <p>Download WTweaker and start optimizing your system today</p>
+                <a href="#download" class="btn" onclick="showPage('download')">Download Now</a>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <div class="card">
+                <h2>About WOPTIMIZATION</h2>
+                <p>WOPTIMIZATION is dedicated to providing powerful, safe, and effective Windows optimization tools. Our flagship application, WTweaker, gives users control over system settings that are typically hidden or difficult to access.</p>
+                
+                <h2 style="margin-top: 2rem;">What is WTweaker?</h2>
+                <p>WTweaker is a comprehensive Windows optimization tool designed to help users customize and enhance their Windows experience. Whether you're looking to improve performance, customize your interface, or unlock advanced settings, WTweaker provides the tools you need.</p>
+
+                <h2 style="margin-top: 2rem;">Key Features</h2>
+                <ul class="feature-list">
+                    <li>Easy-to-use interface with Windows 11 design</li>
+                    <li>Safe system tweaking with backup options</li>
+                    <li>Performance optimization tools</li>
+                    <li>Privacy and security enhancements</li>
+                    <li>Customization options for Windows UI</li>
+                    <li>Regular updates and improvements</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Download Page -->
+        <div id="download" class="page">
+            <div class="card">
+                <h2>Download WTweaker</h2>
+                <p>Choose the version that's right for you. All downloads are hosted on GitHub for transparency and security.</p>
+            </div>
+
+            <div class="download-grid">
+                <div class="download-card">
+                    <h3>WTweaker Stable</h3>
+                    <p>The stable release is thoroughly tested and recommended for most users. It provides reliable performance and all core features.</p>
+                    <p><strong>Recommended for:</strong> Daily use, production systems</p>
+                    <a href="#" class="btn" onclick="alert('Replace with your GitHub Stable release URL')">Download Stable</a>
+                </div>
+
+                <div class="download-card">
+                    <h3>WTweaker Experimental</h3>
+                    <p>The experimental version includes the latest features and improvements. May contain bugs and is intended for testing purposes.</p>
+                    <p><strong>Recommended for:</strong> Testing, advanced users</p>
+                    <a href="#" class="btn btn-outline" onclick="alert('Replace with your GitHub Experimental release URL')">Download Experimental</a>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <h2>Installation Instructions</h2>
+                <ul class="feature-list">
+                    <li>Download the latest release from GitHub</li>
+                    <li>Extract the downloaded archive</li>
+                    <li>Run WTweaker.exe as Administrator</li>
+                    <li>Follow the on-screen instructions</li>
+                    <li>Start optimizing your Windows system</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 WOPTIMIZATION. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            const links = document.querySelectorAll('.nav-link');
+            
+            pages.forEach(page => page.classList.remove('active'));
+            links.forEach(link => link.classList.remove('active'));
+            
+            document.getElementById(pageId).classList.add('active');
+            document.querySelector(`[onclick="showPage('${pageId}')"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
