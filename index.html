@@ -16,6 +16,120 @@
             background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
             color: #ffffff;
             min-height: 100vh;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        /* Theme Variables */
+        body.theme-blue {
+            background: linear-gradient(135deg, #0a1929 0%, #1a3a52 100%);
+        }
+
+        body.theme-purple {
+            background: linear-gradient(135deg, #1a0a29 0%, #3a1a52 100%);
+        }
+
+        body.theme-green {
+            background: linear-gradient(135deg, #0a1f0f 0%, #1a3a25 100%);
+        }
+
+        body.theme-red {
+            background: linear-gradient(135deg, #290a0a 0%, #521a1a 100%);
+        }
+
+        body.theme-light {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            color: #000000;
+        }
+
+        body.theme-light nav {
+            background: rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.theme-light .nav-links a {
+            color: #000000;
+        }
+
+        body.theme-light .nav-links a:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        body.theme-light .nav-links a.active {
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        body.theme-light .card {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.theme-light .card p,
+        body.theme-light .feature-list li {
+            color: #333333;
+        }
+
+        body.theme-light .download-card {
+            background: rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.15);
+        }
+
+        body.theme-light .download-card:hover {
+            background: rgba(0, 0, 0, 0.12);
+            border-color: rgba(0, 0, 0, 0.3);
+        }
+
+        body.theme-light .download-card p {
+            color: #444444;
+        }
+
+        body.theme-light .btn {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        body.theme-light .btn:hover {
+            background: #333333;
+        }
+
+        body.theme-light .btn-outline {
+            background: transparent;
+            color: #000000;
+            border: 1px solid #000000;
+        }
+
+        body.theme-light .btn-outline:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        body.theme-light footer {
+            color: #666666;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.theme-light .theme-selector {
+            background: rgba(0, 0, 0, 0.05);
+            color: #000000;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-selector {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .theme-selector:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .theme-selector option {
+            background: #1a1a1a;
+            color: #ffffff;
         }
 
         nav {
@@ -205,11 +319,100 @@
         }
 
         footer {
-            text-align: center;
-            padding: 2rem;
-            color: #888888;
+            background: rgba(255, 255, 255, 0.05);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             margin-top: 4rem;
+            padding: 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: #888888;
+            margin: 0;
+        }
+
+        .theme-selector-footer {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-selector-footer label {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        body.theme-light footer {
+            background: rgba(0, 0, 0, 0.05);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.theme-light .footer-section h3 {
+            color: #000000;
+        }
+
+        body.theme-light .footer-links a {
+            color: #444444;
+        }
+
+        body.theme-light .footer-links a:hover {
+            color: #000000;
+        }
+
+        body.theme-light .footer-bottom {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.theme-light .theme-selector-footer label {
+            color: #444444;
         }
     </style>
 </head>
@@ -218,10 +421,16 @@
         <div class="container">
             <div class="logo">WOPTIMIZATION</div>
             <ul class="nav-links">
-                <li><a href="#home" class="nav-link active" onclick="showPage('home')">Home</a></li>
-                <li><a href="#about" class="nav-link" onclick="showPage('about')">About</a></li>
-                <li><a href="#download" class="nav-link" onclick="showPage('download')">Download</a></li>
-                <li><a href="#support" class="nav-link" onclick="showPage('support')">Support</a></li>
+                <li><a href="#home" class="nav-link active" onclick="showPage('home')" data-key="nav_home">Home</a></li>
+                <li><a href="#about" class="nav-link" onclick="showPage('about')" data-key="nav_about">About</a></li>
+                <li><a href="#download" class="nav-link" onclick="showPage('download')" data-key="nav_download">Download</a></li>
+                <li><a href="#support" class="nav-link" onclick="showPage('support')" data-key="nav_support">Support</a></li>
+                <li>
+                    <select id="languageSelector" onchange="changeLanguage(this.value)" class="theme-selector">
+                        <option value="en">English</option>
+                        <option value="ru">Русский</option>
+                    </select>
+                </li>
             </ul>
         </div>
     </nav>
@@ -230,40 +439,40 @@
         <!-- Home Page -->
         <div id="home" class="page active">
             <div class="hero">
-                <h1>WOPTIMIZATION</h1>
-                <p>Optimize your Windows experience with WTweaker</p>
+                <h1 data-key="home_title">WOPTIMIZATION</h1>
+                <p data-key="home_subtitle">Optimize your Windows experience with WTweaker</p>
             </div>
 
             <div class="card">
-                <h2>Welcome to WOPTIMIZATION</h2>
-                <p>Your trusted source for Windows optimization tools. WTweaker helps you unlock the full potential of your Windows system with powerful tweaking capabilities.</p>
-                <p>Choose between our stable release for reliable performance or experimental builds for cutting-edge features.</p>
+                <h2 data-key="home_welcome">Welcome to WOPTIMIZATION</h2>
+                <p data-key="home_desc1">Your trusted source for Windows optimization tools. WTweaker helps you unlock the full potential of your Windows system with powerful tweaking capabilities.</p>
+                <p data-key="home_desc2">Choose between our stable release for reliable performance or experimental builds for cutting-edge features.</p>
             </div>
 
             <div class="card" style="text-align: center;">
-                <h2>Get Started</h2>
-                <p>Download WTweaker and start optimizing your system today</p>
-                <a href="#download" class="btn" onclick="showPage('download')">Download Now</a>
+                <h2 data-key="home_getstarted">Get Started</h2>
+                <p data-key="home_getstarted_desc">Download WTweaker and start optimizing your system today</p>
+                <a href="#download" class="btn" onclick="showPage('download')" data-key="home_download_btn">Download Now</a>
             </div>
         </div>
 
         <!-- About Page -->
         <div id="about" class="page">
             <div class="card">
-                <h2>About WOPTIMIZATION</h2>
-                <p>WOPTIMIZATION is dedicated to providing powerful, safe, and effective Windows optimization tools. Our flagship application, WTweaker, gives users control over system settings that are typically hidden or difficult to access.</p>
+                <h2 data-key="about_title">About WOPTIMIZATION</h2>
+                <p data-key="about_desc">WOPTIMIZATION is dedicated to providing powerful, safe, and effective Windows optimization tools. Our flagship application, WTweaker, gives users control over system settings that are typically hidden or difficult to access.</p>
                 
-                <h2 style="margin-top: 2rem;">What is WTweaker?</h2>
-                <p>WTweaker is a comprehensive Windows optimization tool designed to help users customize and enhance their Windows experience. Whether you're looking to improve performance, customize your interface, or unlock advanced settings, WTweaker provides the tools you need.</p>
+                <h2 style="margin-top: 2rem;" data-key="about_what">What is WTweaker?</h2>
+                <p data-key="about_what_desc">WTweaker is a comprehensive Windows optimization tool designed to help users customize and enhance their Windows experience. Whether you're looking to improve performance, customize your interface, or unlock advanced settings, WTweaker provides the tools you need.</p>
 
-                <h2 style="margin-top: 2rem;">Key Features</h2>
+                <h2 style="margin-top: 2rem;" data-key="about_features">Key Features</h2>
                 <ul class="feature-list">
-                    <li>Easy-to-use interface with Windows 11 design</li>
-                    <li>Safe system tweaking with backup options</li>
-                    <li>Performance optimization tools</li>
-                    <li>Privacy and security enhancements</li>
-                    <li>Customization options for Windows UI</li>
-                    <li>Regular updates and improvements</li>
+                    <li data-key="about_feat1">Easy-to-use interface with Windows 11 design</li>
+                    <li data-key="about_feat2">Safe system tweaking with backup options</li>
+                    <li data-key="about_feat3">Performance optimization tools</li>
+                    <li data-key="about_feat4">Privacy and security enhancements</li>
+                    <li data-key="about_feat5">Customization options for Windows UI</li>
+                    <li data-key="about_feat6">Regular updates and improvements</li>
                 </ul>
             </div>
         </div>
@@ -271,34 +480,34 @@
         <!-- Download Page -->
         <div id="download" class="page">
             <div class="card">
-                <h2>Download WTweaker</h2>
-                <p>Choose the version that's right for you. All downloads are hosted on GitHub for transparency and security.</p>
+                <h2 data-key="download_title">Download WTweaker</h2>
+                <p data-key="download_desc">Choose the version that's right for you. All downloads are hosted on GitHub for transparency and security.</p>
             </div>
 
             <div class="download-grid">
                 <div class="download-card">
-                    <h3>WTweaker Stable</h3>
-                    <p>The stable release is thoroughly tested and recommended for most users. It provides reliable performance and all core features.</p>
-                    <p><strong>Recommended for:</strong> Daily use, production systems</p>
-                    <a href="#" class="btn" onclick="alert('Replace with your GitHub Stable release URL')">Download Stable</a>
+                    <h3 data-key="download_stable">WTweaker Stable</h3>
+                    <p data-key="download_stable_desc">The stable release is thoroughly tested and recommended for most users. It provides reliable performance and all core features.</p>
+                    <p><strong data-key="download_stable_rec">Recommended for: Daily use, production systems</strong></p>
+                    <a href="#" class="btn" onclick="alert('Replace with your GitHub Stable release URL')" data-key="download_btn_stable">Download Stable</a>
                 </div>
 
                 <div class="download-card">
-                    <h3>WTweaker Experimental</h3>
-                    <p>The experimental version includes the latest features and improvements. May contain bugs and is intended for testing purposes.</p>
-                    <p><strong>Recommended for:</strong> Testing, advanced users</p>
-                    <a href="#" class="btn btn-outline" onclick="alert('Replace with your GitHub Experimental release URL')">Download Experimental</a>
+                    <h3 data-key="download_experimental">WTweaker Experimental</h3>
+                    <p data-key="download_exp_desc">The experimental version includes the latest features and improvements. May contain bugs and is intended for testing purposes.</p>
+                    <p><strong data-key="download_exp_rec">Recommended for: Testing, advanced users</strong></p>
+                    <a href="#" class="btn btn-outline" onclick="alert('Replace with your GitHub Experimental release URL')" data-key="download_btn_exp">Download Experimental</a>
                 </div>
             </div>
 
             <div class="card" style="margin-top: 2rem;">
-                <h2>Installation Instructions</h2>
+                <h2 data-key="download_install">Installation Instructions</h2>
                 <ul class="feature-list">
-                    <li>Download the latest release from GitHub</li>
-                    <li>Extract the downloaded archive</li>
-                    <li>Run WTweaker.exe as Administrator</li>
-                    <li>Follow the on-screen instructions</li>
-                    <li>Start optimizing your Windows system</li>
+                    <li data-key="download_inst1">Download the latest release from GitHub</li>
+                    <li data-key="download_inst2">Extract the downloaded archive</li>
+                    <li data-key="download_inst3">Run WTweaker.exe as Administrator</li>
+                    <li data-key="download_inst4">Follow the on-screen instructions</li>
+                    <li data-key="download_inst5">Start optimizing your Windows system</li>
                 </ul>
             </div>
         </div>
@@ -306,74 +515,298 @@
         <!-- Support Page -->
         <div id="support" class="page">
             <div class="hero">
-                <h1>Support WOPTIMIZATION</h1>
-                <p>Help keep this project alive and growing</p>
+                <h1 data-key="support_title">Support WOPTIMIZATION</h1>
+                <p data-key="support_subtitle">Help keep this project alive and growing</p>
             </div>
 
             <div class="card">
-                <h2>Why Support?</h2>
-                <p>WOPTIMIZATION is a free and open-source project. Your donations help cover development costs, server expenses, and allow me to dedicate more time to improving WTweaker and creating new features.</p>
-                <p>Every contribution, no matter how small, makes a difference and is greatly appreciated!</p>
+                <h2 data-key="support_why">Why Support?</h2>
+                <p data-key="support_why_desc1">WOPTIMIZATION is a free and open-source project. Your donations help cover development costs, server expenses, and allow me to dedicate more time to improving WTweaker and creating new features.</p>
+                <p data-key="support_why_desc2">Every contribution, no matter how small, makes a difference and is greatly appreciated!</p>
             </div>
 
             <div class="card">
-                <h2>Choose Your Platform</h2>
-                <p style="margin-bottom: 2rem;">Support the project through your preferred donation platform:</p>
+                <h2 data-key="support_choose">Choose Your Platform</h2>
+                <p style="margin-bottom: 2rem;" data-key="support_choose_desc">Support the project through your preferred donation platform:</p>
 
                 <div class="download-grid">
                     <div class="download-card">
                         <div style="font-size: 3rem; margin-bottom: 1rem;">☕</div>
-                        <h3>Buy Me a Coffee</h3>
-                        <p>Support with a one-time coffee donation or become a member for recurring support.</p>
-                        <a href="https://www.buymeacoffee.com/yourusername" target="_blank" class="btn">Buy Me a Coffee</a>
+                        <h3 data-key="support_bmc">Buy Me a Coffee</h3>
+                        <p data-key="support_bmc_desc">Support with a one-time coffee donation or become a member for recurring support.</p>
+                        <a href="https://www.buymeacoffee.com/yourusername" target="_blank" class="btn" data-key="support_btn_bmc">Buy Me a Coffee</a>
                     </div>
 
                     <div class="download-card">
                         <div style="font-size: 3rem; margin-bottom: 1rem;">💝</div>
-                        <h3>Ko-fi</h3>
-                        <p>Make a one-time donation or subscribe for monthly support through Ko-fi.</p>
-                        <a href="https://ko-fi.com/yourusername" target="_blank" class="btn">Support on Ko-fi</a>
+                        <h3 data-key="support_kofi">Ko-fi</h3>
+                        <p data-key="support_kofi_desc">Make a one-time donation or subscribe for monthly support through Ko-fi.</p>
+                        <a href="https://ko-fi.com/yourusername" target="_blank" class="btn" data-key="support_btn_kofi">Support on Ko-fi</a>
                     </div>
 
                     <div class="download-card">
                         <div style="font-size: 3rem; margin-bottom: 1rem;">🔔</div>
-                        <h3>DonationAlerts</h3>
-                        <p>Donate through DonationAlerts with various payment methods available.</p>
-                        <a href="https://www.donationalerts.com/r/yourusername" target="_blank" class="btn">Donate Now</a>
+                        <h3 data-key="support_da">DonationAlerts</h3>
+                        <p data-key="support_da_desc">Donate through DonationAlerts with various payment methods available.</p>
+                        <a href="https://www.donationalerts.com/r/yourusername" target="_blank" class="btn" data-key="support_btn">Donate Now</a>
                     </div>
 
                     <div class="download-card">
                         <div style="font-size: 3rem; margin-bottom: 1rem;">💳</div>
-                        <h3>DonatePay</h3>
-                        <p>Quick and secure donations through DonatePay with multiple payment options.</p>
-                        <a href="https://new.donatepay.ru/@yourusername" target="_blank" class="btn">Support via DonatePay</a>
+                        <h3 data-key="support_dp">DonatePay</h3>
+                        <p data-key="support_dp_desc">Quick and secure donations through DonatePay with multiple payment options.</p>
+                        <a href="https://new.donatepay.ru/@yourusername" target="_blank" class="btn" data-key="support_btn_dp">Support via DonatePay</a>
                     </div>
                 </div>
             </div>
 
             <div class="card">
-                <h2>Other Ways to Support</h2>
+                <h2 data-key="support_other">Other Ways to Support</h2>
                 <ul class="feature-list">
-                    <li>Star the project on GitHub</li>
-                    <li>Share WOPTIMIZATION with friends and on social media</li>
-                    <li>Report bugs and suggest new features</li>
-                    <li>Contribute code or documentation</li>
-                    <li>Write reviews and tutorials</li>
+                    <li data-key="support_other1">Star the project on GitHub</li>
+                    <li data-key="support_other2">Share WOPTIMIZATION with friends and on social media</li>
+                    <li data-key="support_other3">Report bugs and suggest new features</li>
+                    <li data-key="support_other4">Contribute code or documentation</li>
+                    <li data-key="support_other5">Write reviews and tutorials</li>
                 </ul>
             </div>
 
             <div class="card" style="text-align: center; background: rgba(255, 255, 255, 0.08);">
-                <h2>Thank You!</h2>
-                <p>Your support means the world to me and helps make WOPTIMIZATION better for everyone. Thank you for being part of this project!</p>
+                <h2 data-key="support_thanks">Thank You!</h2>
+                <p data-key="support_thanks_desc">Your support means the world to me and helps make WOPTIMIZATION better for everyone. Thank you for being part of this project!</p>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 WOPTIMIZATION. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3 data-lang-en="Product" data-lang-ru="Продукт">Product</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home" onclick="showPage('home')" data-lang-en="Home" data-lang-ru="Главная">Home</a></li>
+                        <li><a href="#download" onclick="showPage('download')" data-lang-en="Download" data-lang-ru="Скачать">Download</a></li>
+                        <li><a href="#about" onclick="showPage('about')" data-lang-en="About" data-lang-ru="О программе">About</a></li>
+                        <li><a href="https://github.com/yourusername/wtweaker" target="_blank" data-lang-en="GitHub" data-lang-ru="GitHub">GitHub</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 data-lang-en="Support" data-lang-ru="Поддержка">Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#support" onclick="showPage('support')" data-lang-en="Donate" data-lang-ru="Поддержать">Donate</a></li>
+                        <li><a href="https://github.com/yourusername/wtweaker/issues" target="_blank" data-lang-en="Report Bug" data-lang-ru="Сообщить об ошибке">Report Bug</a></li>
+                        <li><a href="https://github.com/yourusername/wtweaker/discussions" target="_blank" data-lang-en="Community" data-lang-ru="Сообщество">Community</a></li>
+                        <li><a href="#" data-lang-en="Documentation" data-lang-ru="Документация">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 data-lang-en="Connect" data-lang-ru="Связь">Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
+                        <li><a href="https://discord.gg/yourserver" target="_blank">Discord</a></li>
+                        <li><a href="https://t.me/yourchannel" target="_blank">Telegram</a></li>
+                        <li><a href="mailto:your@email.com" data-lang-en="Email" data-lang-ru="Email">Email</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 data-lang-en="Legal" data-lang-ru="Правовая информация">Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-lang-en="Privacy Policy" data-lang-ru="Политика конфиденциальности">Privacy Policy</a></li>
+                        <li><a href="#" data-lang-en="Terms of Service" data-lang-ru="Условия использования">Terms of Service</a></li>
+                        <li><a href="#" data-lang-en="License" data-lang-ru="Лицензия">License</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p data-lang-en="© 2024 WOPTIMIZATION. All rights reserved." data-lang-ru="© 2024 WOPTIMIZATION. Все права защищены.">© 2024 WOPTIMIZATION. All rights reserved.</p>
+            <div class="theme-selector-footer">
+                <label for="themeSelector" data-lang-en="Theme:" data-lang-ru="Тема:">Theme:</label>
+                <select id="themeSelector" onchange="changeTheme(this.value)" class="theme-selector">
+                    <option value="dark" data-lang-en="Dark" data-lang-ru="Темная">Dark</option>
+                    <option value="blue" data-lang-en="Blue" data-lang-ru="Синяя">Blue</option>
+                    <option value="purple" data-lang-en="Purple" data-lang-ru="Фиолетовая">Purple</option>
+                    <option value="green" data-lang-en="Green" data-lang-ru="Зеленая">Green</option>
+                    <option value="red" data-lang-en="Red" data-lang-ru="Красная">Red</option>
+                    <option value="light" data-lang-en="Light" data-lang-ru="Светлая">Light</option>
+                </select>
+            </div>
+        </div>
     </footer>
 
     <script>
+        // Translations
+        const translations = {
+            en: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_download: "Download",
+                nav_support: "Support",
+                
+                home_title: "WOPTIMIZATION",
+                home_subtitle: "Optimize your Windows experience with WTweaker",
+                home_welcome: "Welcome to WOPTIMIZATION",
+                home_desc1: "Your trusted source for Windows optimization tools. WTweaker helps you unlock the full potential of your Windows system with powerful tweaking capabilities.",
+                home_desc2: "Choose between our stable release for reliable performance or experimental builds for cutting-edge features.",
+                home_getstarted: "Get Started",
+                home_getstarted_desc: "Download WTweaker and start optimizing your system today",
+                home_download_btn: "Download Now",
+                
+                about_title: "About WOPTIMIZATION",
+                about_desc: "WOPTIMIZATION is dedicated to providing powerful, safe, and effective Windows optimization tools. Our flagship application, WTweaker, gives users control over system settings that are typically hidden or difficult to access.",
+                about_what: "What is WTweaker?",
+                about_what_desc: "WTweaker is a comprehensive Windows optimization tool designed to help users customize and enhance their Windows experience. Whether you're looking to improve performance, customize your interface, or unlock advanced settings, WTweaker provides the tools you need.",
+                about_features: "Key Features",
+                about_feat1: "Easy-to-use interface with Windows 11 design",
+                about_feat2: "Safe system tweaking with backup options",
+                about_feat3: "Performance optimization tools",
+                about_feat4: "Privacy and security enhancements",
+                about_feat5: "Customization options for Windows UI",
+                about_feat6: "Regular updates and improvements",
+                
+                download_title: "Download WTweaker",
+                download_desc: "Choose the version that's right for you. All downloads are hosted on GitHub for transparency and security.",
+                download_stable: "WTweaker Stable",
+                download_stable_desc: "The stable release is thoroughly tested and recommended for most users. It provides reliable performance and all core features.",
+                download_stable_rec: "Recommended for: Daily use, production systems",
+                download_experimental: "WTweaker Experimental",
+                download_exp_desc: "The experimental version includes the latest features and improvements. May contain bugs and is intended for testing purposes.",
+                download_exp_rec: "Recommended for: Testing, advanced users",
+                download_btn_stable: "Download Stable",
+                download_btn_exp: "Download Experimental",
+                download_install: "Installation Instructions",
+                download_inst1: "Download the latest release from GitHub",
+                download_inst2: "Extract the downloaded archive",
+                download_inst3: "Run WTweaker.exe as Administrator",
+                download_inst4: "Follow the on-screen instructions",
+                download_inst5: "Start optimizing your Windows system",
+                
+                support_title: "Support WOPTIMIZATION",
+                support_subtitle: "Help keep this project alive and growing",
+                support_why: "Why Support?",
+                support_why_desc1: "WOPTIMIZATION is a free and open-source project. Your donations help cover development costs, server expenses, and allow me to dedicate more time to improving WTweaker and creating new features.",
+                support_why_desc2: "Every contribution, no matter how small, makes a difference and is greatly appreciated!",
+                support_choose: "Choose Your Platform",
+                support_choose_desc: "Support the project through your preferred donation platform:",
+                support_bmc: "Buy Me a Coffee",
+                support_bmc_desc: "Support with a one-time coffee donation or become a member for recurring support.",
+                support_kofi: "Ko-fi",
+                support_kofi_desc: "Make a one-time donation or subscribe for monthly support through Ko-fi.",
+                support_da: "DonationAlerts",
+                support_da_desc: "Donate through DonationAlerts with various payment methods available.",
+                support_dp: "DonatePay",
+                support_dp_desc: "Quick and secure donations through DonatePay with multiple payment options.",
+                support_btn: "Donate Now",
+                support_btn_bmc: "Buy Me a Coffee",
+                support_btn_kofi: "Support on Ko-fi",
+                support_btn_dp: "Support via DonatePay",
+                support_other: "Other Ways to Support",
+                support_other1: "Star the project on GitHub",
+                support_other2: "Share WOPTIMIZATION with friends and on social media",
+                support_other3: "Report bugs and suggest new features",
+                support_other4: "Contribute code or documentation",
+                support_other5: "Write reviews and tutorials",
+                support_thanks: "Thank You!",
+                support_thanks_desc: "Your support means the world to me and helps make WOPTIMIZATION better for everyone. Thank you for being part of this project!"
+            },
+            ru: {
+                nav_home: "Главная",
+                nav_about: "О программе",
+                nav_download: "Скачать",
+                nav_support: "Поддержка",
+                
+                home_title: "WOPTIMIZATION",
+                home_subtitle: "Оптимизируйте Windows с помощью WTweaker",
+                home_welcome: "Добро пожаловать в WOPTIMIZATION",
+                home_desc1: "Надежный источник инструментов оптимизации Windows. WTweaker помогает раскрыть весь потенциал вашей системы Windows с помощью мощных возможностей настройки.",
+                home_desc2: "Выберите стабильную версию для надежной работы или экспериментальные сборки для новейших функций.",
+                home_getstarted: "Начать",
+                home_getstarted_desc: "Скачайте WTweaker и начните оптимизацию системы сегодня",
+                home_download_btn: "Скачать сейчас",
+                
+                about_title: "О WOPTIMIZATION",
+                about_desc: "WOPTIMIZATION предоставляет мощные, безопасные и эффективные инструменты оптимизации Windows. Наше главное приложение WTweaker дает пользователям контроль над системными настройками, которые обычно скрыты или труднодоступны.",
+                about_what: "Что такое WTweaker?",
+                about_what_desc: "WTweaker — это комплексный инструмент оптимизации Windows, разработанный для настройки и улучшения работы с Windows. Будь то повышение производительности, настройка интерфейса или разблокировка расширенных параметров — WTweaker предоставляет необходимые инструменты.",
+                about_features: "Основные возможности",
+                about_feat1: "Простой интерфейс в стиле Windows 11",
+                about_feat2: "Безопасная настройка системы с резервным копированием",
+                about_feat3: "Инструменты оптимизации производительности",
+                about_feat4: "Улучшение конфиденциальности и безопасности",
+                about_feat5: "Параметры настройки интерфейса Windows",
+                about_feat6: "Регулярные обновления и улучшения",
+                
+                download_title: "Скачать WTweaker",
+                download_desc: "Выберите подходящую версию. Все загрузки размещены на GitHub для прозрачности и безопасности.",
+                download_stable: "WTweaker Стабильная",
+                download_stable_desc: "Стабильная версия тщательно протестирована и рекомендуется для большинства пользователей. Обеспечивает надежную работу и все основные функции.",
+                download_stable_rec: "Рекомендуется для: Ежедневного использования, рабочих систем",
+                download_experimental: "WTweaker Экспериментальная",
+                download_exp_desc: "Экспериментальная версия включает новейшие функции и улучшения. Может содержать ошибки и предназначена для тестирования.",
+                download_exp_rec: "Рекомендуется для: Тестирования, опытных пользователей",
+                download_btn_stable: "Скачать стабильную",
+                download_btn_exp: "Скачать экспериментальную",
+                download_install: "Инструкции по установке",
+                download_inst1: "Скачайте последнюю версию с GitHub",
+                download_inst2: "Извлеките скачанный архив",
+                download_inst3: "Запустите WTweaker.exe от имени администратора",
+                download_inst4: "Следуйте инструкциям на экране",
+                download_inst5: "Начните оптимизацию системы Windows",
+                
+                support_title: "Поддержите WOPTIMIZATION",
+                support_subtitle: "Помогите сохранить проект живым и развивающимся",
+                support_why: "Зачем поддерживать?",
+                support_why_desc1: "WOPTIMIZATION — это бесплатный проект с открытым исходным кодом. Ваши пожертвования помогают покрыть расходы на разработку, серверы и позволяют мне уделять больше времени улучшению WTweaker и созданию новых функций.",
+                support_why_desc2: "Каждый вклад, каким бы маленьким он ни был, имеет значение и очень ценится!",
+                support_choose: "Выберите платформу",
+                support_choose_desc: "Поддержите проект через удобную вам платформу:",
+                support_bmc: "Buy Me a Coffee",
+                support_bmc_desc: "Поддержите разовым пожертвованием или станьте участником для регулярной поддержки.",
+                support_kofi: "Ko-fi",
+                support_kofi_desc: "Сделайте разовое пожертвование или оформите ежемесячную подписку через Ko-fi.",
+                support_da: "DonationAlerts",
+                support_da_desc: "Пожертвуйте через DonationAlerts с различными способами оплаты.",
+                support_dp: "DonatePay",
+                support_dp_desc: "Быстрые и безопасные пожертвования через DonatePay с несколькими вариантами оплаты.",
+                support_btn: "Поддержать",
+                support_btn_bmc: "Buy Me a Coffee",
+                support_btn_kofi: "Поддержать на Ko-fi",
+                support_btn_dp: "Поддержать через DonatePay",
+                support_other: "Другие способы поддержки",
+                support_other1: "Поставьте звезду проекту на GitHub",
+                support_other2: "Поделитесь WOPTIMIZATION с друзьями и в социальных сетях",
+                support_other3: "Сообщайте об ошибках и предлагайте новые функции",
+                support_other4: "Вносите вклад в код или документацию",
+                support_other5: "Пишите обзоры и руководства",
+                support_thanks: "Спасибо!",
+                support_thanks_desc: "Ваша поддержка очень много значит для меня и помогает сделать WOPTIMIZATION лучше для всех. Спасибо, что вы часть этого проекта!"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('woptimization-lang', lang);
+            
+            // Update all elements with data-lang attributes
+            document.querySelectorAll('[data-lang-' + lang + ']').forEach(el => {
+                el.textContent = el.getAttribute('data-lang-' + lang);
+            });
+            
+            // Update all elements with data-key attributes
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+        }
+
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
             const links = document.querySelectorAll('.nav-link');
@@ -384,6 +817,33 @@
             document.getElementById(pageId).classList.add('active');
             document.querySelector(`[onclick="showPage('${pageId}')"]`).classList.add('active');
         }
+
+        function changeTheme(theme) {
+            const body = document.body;
+            
+            // Remove all theme classes
+            body.classList.remove('theme-dark', 'theme-blue', 'theme-purple', 'theme-green', 'theme-red', 'theme-light');
+            
+            // Add selected theme class
+            if (theme !== 'dark') {
+                body.classList.add('theme-' + theme);
+            }
+            
+            // Save theme preference
+            localStorage.setItem('woptimization-theme', theme);
+        }
+
+        // Load saved preferences on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('woptimization-theme') || 'dark';
+            const savedLang = localStorage.getItem('woptimization-lang') || 'en';
+            
+            document.getElementById('themeSelector').value = savedTheme;
+            document.getElementById('languageSelector').value = savedLang;
+            
+            changeTheme(savedTheme);
+            changeLanguage(savedLang);
+        });
     </script>
 </body>
 </html>
