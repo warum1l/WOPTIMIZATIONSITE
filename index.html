@@ -425,12 +425,6 @@
                 <li><a href="#about" class="nav-link" onclick="showPage('about')" data-key="nav_about">About</a></li>
                 <li><a href="#download" class="nav-link" onclick="showPage('download')" data-key="nav_download">Download</a></li>
                 <li><a href="#support" class="nav-link" onclick="showPage('support')" data-key="nav_support">Support</a></li>
-                <li>
-                    <select id="languageSelector" onchange="changeLanguage(this.value)" class="theme-selector">
-                        <option value="en">English</option>
-                        <option value="ru">Русский</option>
-                    </select>
-                </li>
             </ul>
         </div>
     </nav>
@@ -489,14 +483,14 @@
                     <h3 data-key="download_stable">WTweaker Stable</h3>
                     <p data-key="download_stable_desc">The stable release is thoroughly tested and recommended for most users. It provides reliable performance and all core features.</p>
                     <p><strong data-key="download_stable_rec">Recommended for: Daily use, production systems</strong></p>
-                    <a href="#" class="btn" onclick="alert('Replace with your GitHub Stable release URL')" data-key="download_btn_stable">Download Stable</a>
+                    <a href="#" class="btn" onclick="alert('https://github.com/warum1l/WTweaker/releases/download/v1.6/WTweaker.zip')" data-key="download_btn_stable">Download Stable</a>
                 </div>
 
                 <div class="download-card">
                     <h3 data-key="download_experimental">WTweaker Experimental</h3>
                     <p data-key="download_exp_desc">The experimental version includes the latest features and improvements. May contain bugs and is intended for testing purposes.</p>
                     <p><strong data-key="download_exp_rec">Recommended for: Testing, advanced users</strong></p>
-                    <a href="#" class="btn btn-outline" onclick="alert('Replace with your GitHub Experimental release URL')" data-key="download_btn_exp">Download Experimental</a>
+                    <a href="#" class="btn btn-outline" onclick="alert('https://github.com/warum1l/WTweaker/releases/download/E1.0.0/WTWEAKER.zip')" data-key="download_btn_exp">Download Experimental</a>
                 </div>
             </div>
 
@@ -634,6 +628,10 @@
                     <option value="red" data-lang-en="Red" data-lang-ru="Красная">Red</option>
                     <option value="light" data-lang-en="Light" data-lang-ru="Светлая">Light</option>
                 </select>
+                <select id="languageSelector" onchange="changeLanguage(this.value)" class="theme-selector">
+                        <option value="en">English</option>
+                        <option value="ru">Русский</option>
+                    </select>
             </div>
         </div>
     </footer>
