@@ -400,6 +400,13 @@
         body.theme-light .theme-selector-footer label {
             color: #444444;
         }
+
+        .coming-soon {
+            font-size: 1.5rem;
+            color: #888888;
+            text-align: center;
+            padding: 2rem 0;
+        }
     </style>
 </head>
 <body>
@@ -410,6 +417,7 @@
                 <li><a href="#home" class="nav-link active" onclick="showPage('home')" data-key="nav_home">Home</a></li>
                 <li><a href="#about" class="nav-link" onclick="showPage('about')" data-key="nav_about">About</a></li>
                 <li><a href="#download" class="nav-link" onclick="showPage('download')" data-key="nav_download">Download</a></li>
+                <li><a href="#apps" class="nav-link" onclick="showPage('apps')" data-key="nav_apps">All Apps</a></li>
                 <li><a href="#support" class="nav-link" onclick="showPage('support')" data-key="nav_support">Support</a></li>
             </ul>
         </div>
@@ -461,33 +469,19 @@
         <div id="download" class="page">
             <div class="card">
                 <h2 data-key="download_title">Download WTweaker</h2>
-                <p data-key="download_desc">Choose the version that's right for you. All downloads are hosted on GitHub for transparency and security.</p>
+                <p data-key="download_desc">Get the latest version of WTweaker. All downloads are hosted on GitHub for transparency and security.</p>
             </div>
 
             <div class="download-grid">
                 <div class="download-card">
-                    <h3 data-key="download_stable">WTweaker Stable</h3>
-                    <p data-key="download_stable_desc">The stable release is thoroughly tested and recommended for most users. It provides reliable performance and all core features.</p>
-                    <p><strong data-key="download_stable_rec">Recommended for: Daily use, production systems</strong></p>
+                    <h3 data-key="download_wtweaker">WTweaker</h3>
+                    <p data-key="download_wtweaker_desc">The complete Windows optimization tool with all core features and regular updates.</p>
                     <a
                         href="https://github.com/warum1l/WTweaker/releases/download/v1.6/WTweaker.zip"
                           class="btn"
-                          data-key="download_btn_stable"
+                          data-key="download_btn_wtweaker"
                         >
-                          Download Stable
-                        </a>
-                </div>
-
-                <div class="download-card">
-                    <h3 data-key="download_experimental">WTweaker Experimental</h3>
-                    <p data-key="download_exp_desc">The experimental version includes the latest features and improvements. May contain bugs and is intended for testing purposes.</p>
-                    <p><strong data-key="download_exp_rec">Recommended for: Testing, advanced users</strong></p>
-                    <a
-                          href="https://github.com/warum1l/WTweaker/releases/download/E1.0.0/WTWEAKER.zip"
-                          class="btn btn-outline"
-                          data-key="download_btn_exp"
-                        >
-                          Download Experimental
+                          Download WTweaker
                         </a>
                 </div>
             </div>
@@ -501,6 +495,26 @@
                     <li data-key="download_inst4">Follow the on-screen instructions</li>
                     <li data-key="download_inst5">Start optimizing your Windows system</li>
                 </ul>
+            </div>
+        </div>
+
+        <!-- All Apps Page -->
+        <div id="apps" class="page">
+            <div class="hero">
+                <h1 data-key="apps_title">All Apps</h1>
+                <p data-key="apps_subtitle">Explore our suite of Windows tools</p>
+            </div>
+
+            <div class="download-grid">
+                <div class="download-card">
+                    <h3>WTweaker</h3>
+                    <a href="https://github.com/warum1l/WTweaker" target="_blank" class="btn" data-key="apps_btn_versions">Check All Versions</a>
+                </div>
+
+                <div class="download-card">
+                    <h3>WUnlocker</h3>
+                    <p class="coming-soon" data-key="apps_coming_soon">Coming Soon</p>
+                </div>
             </div>
         </div>
 
@@ -577,7 +591,8 @@
                     <h3 data-lang-en="Product" data-lang-ru="Продукт">Product</h3>
                     <ul class="footer-links">
                         <li><a href="#home" onclick="showPage('home')" data-lang-en="Home" data-lang-ru="Главная">Home</a></li>
-                        <li><a href="#download" onclick="showPage('download')" data-lang-en="Download" data-lang-ru="Скачать">Download</a></li>
+                        <li><a href="#download" onclick="showPage('download')" data-lang-en="WTweaker" data-lang-ru="WTweaker">WTweaker</a></li>
+                        <li><a href="#apps" onclick="showPage('apps')" data-lang-en="All Apps" data-lang-ru="Все приложения">All Apps</a></li>
                         <li><a href="#about" onclick="showPage('about')" data-lang-en="About" data-lang-ru="О программе">About</a></li>
                         <li><a href="https://github.com/yourusername/wtweaker" target="_blank" data-lang-en="GitHub" data-lang-ru="GitHub">GitHub</a></li>
                     </ul>
@@ -636,7 +651,8 @@
             en: {
                 nav_home: "Home",
                 nav_about: "About",
-                nav_download: "Download",
+                nav_download: "WTweaker",
+                nav_apps: "All Projects",
                 nav_support: "Support",
                 
                 home_title: "WOPTIMIZATION",
@@ -661,21 +677,21 @@
                 about_feat6: "Regular updates and improvements",
                 
                 download_title: "Download WTweaker",
-                download_desc: "Choose the version that's right for you. All downloads are hosted on GitHub for transparency and security.",
-                download_stable: "WTweaker Stable",
-                download_stable_desc: "The stable release is thoroughly tested and recommended for most users. It provides reliable performance and all core features.",
-                download_stable_rec: "Recommended for: Daily use, production systems",
-                download_experimental: "WTweaker Experimental",
-                download_exp_desc: "The experimental version includes the latest features and improvements. May contain bugs and is intended for testing purposes.",
-                download_exp_rec: "Recommended for: Testing, advanced users",
-                download_btn_stable: "Download Stable",
-                download_btn_exp: "Download Experimental",
+                download_desc: "Get the latest version of WTweaker. All downloads are hosted on GitHub for transparency and security.",
+                download_wtweaker: "WTweaker",
+                download_wtweaker_desc: "The complete Windows optimization tool with all core features and regular updates.",
+                download_btn_wtweaker: "Download WTweaker",
                 download_install: "Installation Instructions",
                 download_inst1: "Download the latest release from GitHub",
                 download_inst2: "Extract the downloaded archive",
                 download_inst3: "Run WTweaker.exe as Administrator",
                 download_inst4: "Follow the on-screen instructions",
                 download_inst5: "Start optimizing your Windows system",
+                
+                apps_title: "All Apps",
+                apps_subtitle: "Explore our suite of Windows tools",
+                apps_btn_versions: "Check All Versions",
+                apps_coming_soon: "Coming Soon",
                 
                 support_title: "Support WOPTIMIZATION",
                 support_subtitle: "Help keep this project alive and growing",
@@ -708,7 +724,8 @@
             ru: {
                 nav_home: "Главная",
                 nav_about: "О программе",
-                nav_download: "Скачать",
+                nav_download: "WTweaker",
+                nav_apps: "Все приложения",
                 nav_support: "Поддержка",
                 
                 home_title: "WOPTIMIZATION",
@@ -733,21 +750,21 @@
                 about_feat6: "Регулярные обновления и улучшения",
                 
                 download_title: "Скачать WTweaker",
-                download_desc: "Выберите подходящую версию. Все загрузки размещены на GitHub для прозрачности и безопасности.",
-                download_stable: "WTweaker Стабильная",
-                download_stable_desc: "Стабильная версия тщательно протестирована и рекомендуется для большинства пользователей. Обеспечивает надежную работу и все основные функции.",
-                download_stable_rec: "Рекомендуется для: Ежедневного использования, рабочих систем",
-                download_experimental: "WTweaker Экспериментальная",
-                download_exp_desc: "Экспериментальная версия включает новейшие функции и улучшения. Может содержать ошибки и предназначена для тестирования.",
-                download_exp_rec: "Рекомендуется для: Тестирования, опытных пользователей",
-                download_btn_stable: "Скачать стабильную",
-                download_btn_exp: "Скачать экспериментальную",
+                download_desc: "Получите последнюю версию WTweaker. Все загрузки размещены на GitHub для прозрачности и безопасности.",
+                download_wtweaker: "WTweaker",
+                download_wtweaker_desc: "Полный инструмент оптимизации Windows со всеми основными функциями и регулярными обновлениями.",
+                download_btn_wtweaker: "Скачать WTweaker",
                 download_install: "Инструкции по установке",
                 download_inst1: "Скачайте последнюю версию с GitHub",
                 download_inst2: "Извлеките скачанный архив",
                 download_inst3: "Запустите WTweaker.exe от имени администратора",
                 download_inst4: "Следуйте инструкциям на экране",
                 download_inst5: "Начните оптимизацию системы Windows",
+                
+                apps_title: "Все приложения",
+                apps_subtitle: "Изучите наш набор инструментов для Windows",
+                apps_btn_versions: "Посмотреть все версии",
+                apps_coming_soon: "Скоро",
                 
                 support_title: "Поддержите WOPTIMIZATION",
                 support_subtitle: "Помогите сохранить проект живым и развивающимся",
