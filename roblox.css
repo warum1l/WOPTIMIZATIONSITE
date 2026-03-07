@@ -574,3 +574,86 @@
   .calc-slots { grid-template-columns: repeat(3, 1fr); }
   .aotr-categories { grid-template-columns: 1fr; }
 }
+
+/* =============================================
+   QTY CONTROLS IN SLOTS
+   ============================================= */
+
+.calc-slot--filled {
+  padding: 8px 8px 6px;
+  gap: 2px;
+  justify-content: flex-start;
+}
+
+.slot-qty-ctrl {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  width: 100%;
+  justify-content: center;
+}
+
+.qty-btn {
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+  padding: 0;
+}
+.qty-btn:hover:not(:disabled) {
+  background: var(--accent-roblox);
+  border-color: var(--accent-roblox);
+  color: #fff;
+}
+.qty-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.qty-input {
+  width: 36px;
+  text-align: center;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 2px;
+  outline: none;
+  -moz-appearance: textfield;
+}
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.qty-input:focus {
+  border-color: rgba(232,69,60,0.5);
+}
+
+/* Qty badge in picker */
+.picker-qty-badge {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border-radius: 50px;
+  background: rgba(232,69,60,0.1);
+  color: var(--accent-roblox);
+  border: 1px solid rgba(232,69,60,0.2);
+}
+
+/* Taller slots when qty controls present */
+.calc-slot--filled {
+  min-height: 95px;
+}
