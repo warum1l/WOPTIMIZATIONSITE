@@ -499,3 +499,8 @@ a { text-decoration: none; color: inherit; }
   .cards-grid { grid-template-columns: 1fr; }
   .tools-grid { grid-template-columns: 1fr; }
 }
+
+/* === COMMUNITY CARD === */
+.card--community { --c: #7289da; }
+.card--community .card-glow { background: radial-gradient(circle at 20% 20%, rgba(114,137,218,0.14), transparent 60%); }
+.card--community:hover { border-color: rgba(114,137,218,0.45); }
