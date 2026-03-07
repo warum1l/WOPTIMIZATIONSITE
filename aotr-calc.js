@@ -1,10 +1,207 @@
 // =============================================
-// AOT:R Trade Calculator
+// AOT:R Trade Calculator — Full Item List
 // =============================================
 
-// --- ITEMS DATABASE (populate later) ---
 const ITEMS = [
-  // { id: 'item_1', name: 'Example Item', value: 1000, rarity: 'Legendary' },
+  { id: 'third_eye', name: 'Third Eye', value: 200000, source: 'LB Aura' },
+  { id: 'eclipse', name: 'Eclipse', value: 90000, source: 'LB Aura' },
+  { id: 'seraphic', name: 'Seraphic', value: 37000, source: 'LB Aura' },
+  { id: 'toji_attire', name: 'Toji Attire', value: 10530, source: 'JJK Crate' },
+  { id: 'bambietta_wings', name: 'Bambietta Wings', value: 9450, source: 'Bleach Crate' },
+  { id: 'ulquiorra_wings', name: 'Ulquiorra Wings', value: 8370, source: 'Bleach Crate' },
+  { id: 'black_flash_aura', name: 'Black Flash Aura', value: 6210, source: 'JJK Crate' },
+  { id: 'zangetsu', name: 'Zangetsu', value: 5130, source: 'Bleach Crate' },
+  { id: 'primera_attire', name: 'Primera Attire', value: 4050, source: 'Bleach Crate' },
+  { id: 'cursed_markings', name: 'Cursed Markings', value: 2400, source: 'JJK Crate' },
+  { id: 'helos', name: 'Helos', value: 2160, source: 'Family' },
+  { id: 'mahoraga_wheel', name: 'Mahoraga Wheel', value: 1890, source: 'JJK Crate' },
+  { id: 'fritz', name: 'Fritz', value: 1620, source: 'Family' },
+  { id: 'onikiri_eren', name: 'Onikiri Eren', value: 1200, source: 'Battle Pass (Season 1)' },
+  { id: 'captain_attire', name: 'CaptainAttire', value: 1080, source: 'Bleach Crate' },
+  { id: 'jotunn', name: 'Jotunn', value: 420, source: 'Battle Pass (Season 2)' },
+  { id: 'soul_split_katana', name: 'Soul Split Katana', value: 375, source: 'JJK Crate' },
+  { id: 'quincy_attire', name: 'Quincy Attire', value: 350, source: 'Bleach Crate' },
+  { id: 'katen_kyokotsu', name: 'Katen Kyokotsu', value: 325, source: 'Bleach Crate' },
+  { id: 'geto_attire', name: 'Geto Attire', value: 300, source: 'JJK Crate' },
+  { id: 'icarus_spear_gear', name: 'Icarus Spear Gear', value: 270, source: 'Battle Pass (Season 2)' },
+  { id: 'icarus_spear_equipment', name: 'Icarus Spear Equipment', value: 270, source: 'Battle Pass (Season 2)' },
+  { id: 'vizard_mask', name: 'Vizard Mask', value: 270, source: 'Mission Exclusives' },
+  { id: 'equinox_moon', name: 'Equinox Moon', value: 200, source: 'Easter Event' },
+  { id: 'jjk_crate', name: 'JJK Crate', value: 150, source: 'Crates' },
+  { id: 'forsaken', name: 'Forsaken', value: 140, source: 'Halloween Event' },
+  { id: 'ulquiorra_attire', name: 'Ulquiorra Attire', value: 130, source: 'Bleach Crate' },
+  { id: 'bleach_crate', name: 'Bleach Crate', value: 120, source: 'Crates' },
+  { id: 'kazeshini', name: 'Kazeshini', value: 120, source: 'Bleach Crate' },
+  { id: 'soul_reaper_attire', name: 'Soul Reaper Attire', value: 100, source: 'Bleach Crate' },
+  { id: 'isoh', name: 'ISOH', value: 100, source: 'JJK Crate' },
+  { id: 'cursed_energy_aura', name: 'Cursed Energy Aura', value: 100, source: 'JJK Crate' },
+  { id: 'cosmic_nova', name: 'Cosmic Nova', value: 90, source: 'Blade Burst Crate' },
+  { id: 'astolfo_attire', name: 'Astolfo Attire', value: 90, source: 'Fate Crate' },
+  { id: 'giyuu_attire', name: 'Giyuu Attire', value: 90, source: 'Demon Slayer Crate' },
+  { id: 'nichrin_cleaver', name: 'Nichrin Cleaver', value: 80, source: 'Demon Slayer Crate' },
+  { id: 'gilgamesh_attire', name: 'Gilgamesh Attire', value: 80, source: 'Fate Crate' },
+  { id: 'sorcerer_attire', name: 'Sorcerer Attire', value: 80, source: 'JJK Crate' },
+  { id: 'maid_attire', name: 'Maid Attire', value: 80, source: 'Scout Fashion Crate' },
+  { id: 'azure_flame', name: 'Azure Flame', value: 80, source: 'Blade Burst Crate' },
+  { id: 'grumpy', name: 'Grumpy', value: 80, source: 'Halloween Event' },
+  { id: 'kisuke_attire', name: 'Kisuke Attire', value: 80, source: 'Bleach Crate' },
+  { id: 'ignited', name: 'Ignited', value: 80, source: 'Blade Burst Crate' },
+  { id: 'titanstrike', name: 'Titanstrike', value: 80, source: 'Blade Burst Crate' },
+  { id: 'tengen_attire', name: 'Tengen Attire', value: 80, source: 'Demon Slayer Crate' },
+  { id: 'white_skeleton_attire', name: 'White Skeleton Attire', value: 70, source: 'Halloween Event' },
+  { id: 'cat_ears', name: 'Cat Ears', value: 70, source: 'Scout Fashion Crate' },
+  { id: 'vulcano_cagligorante', name: 'Vulcano Cagligorante', value: 70, source: 'Fate Crate' },
+  { id: 'candy_cane_blades', name: 'Candy Cane Blades', value: 60, source: 'Christmas Event' },
+  { id: 'explosion_art', name: 'Explosion Art', value: 60, source: 'Demon Slayer Crate' },
+  { id: 'moai_armour_skin', name: 'Moai Armour Skin', value: 60, source: 'Easter Event' },
+  { id: 'ackerman', name: 'Ackerman', value: 60, source: 'Family' },
+  { id: 'yeager', name: 'Yeager', value: 60, source: 'Family' },
+  { id: 'military_attire', name: 'Military Attire', value: 60, source: 'Achievement Exclusive' },
+  { id: 'butcher_blade', name: 'Butcher Blade', value: 50, source: 'Halloween Event' },
+  { id: 'zangetsu_m', name: 'Zangetsu M', value: 50, source: 'Bleach Crate' },
+  { id: 'deus_ex_machina', name: 'Deus Ex Machina', value: 50, source: 'Battle Pass (Season 3)' },
+  { id: 'blade_head', name: 'Blade Head', value: 50, source: 'Halloween Event' },
+  { id: 'elderflame_sheath', name: 'Elderflame Sheath', value: 46, source: 'Battle Pass (Season 2)' },
+  { id: 'elderflame_gear', name: 'Elderflame Gear', value: 46, source: 'Battle Pass (Season 2)' },
+  { id: 'elderflame_blade', name: 'Elderflame Blade', value: 46, source: 'Battle Pass (Season 2)' },
+  { id: 'green_skeleton_attire', name: 'Green Skeleton Attire', value: 40, source: 'Halloween Event' },
+  { id: 'jotunn_spear_equipment', name: 'Jotunn Spear Equipment', value: 40, source: 'Raid Drop' },
+  { id: 'spirit_gear', name: 'Spirit Gear', value: 40, source: 'Battle Pass (Season 1)' },
+  { id: 'spirit_sheath', name: 'Spirit Sheath', value: 40, source: 'Battle Pass (Season 1)' },
+  { id: 'spirit_blade', name: 'Spirit Blade', value: 40, source: 'Battle Pass (Season 1)' },
+  { id: 'jotunn_spear_gear', name: 'Jotunn Spear Gear', value: 40, source: 'Raid Drop' },
+  { id: 'art_of_war', name: 'Art Of War', value: 30, source: 'Perk' },
+  { id: 'onikiri_spear_gear', name: 'Onikiri Spear Gear', value: 30, source: 'Raid Drop' },
+  { id: 'benihime', name: 'Benihime', value: 30, source: 'Bleach Crate' },
+  { id: 'jotunn_gear', name: 'Jotunn Gear', value: 30, source: 'Raid Drop' },
+  { id: 'jotunn_sheath', name: 'Jotunn Sheath', value: 30, source: 'Raid Drop' },
+  { id: 'chicken', name: 'Chicken', value: 30, source: 'Easter Event' },
+  { id: 'utahime_attire', name: 'Utahime Attire', value: 30, source: 'JJK Crate' },
+  { id: 'santa_sack', name: 'Santa Sack', value: 30, source: 'Christmas Event' },
+  { id: 'onikiri_spear_equipment', name: 'Onikiri Spear Equipment', value: 30, source: 'Raid Drop' },
+  { id: 'female_serum', name: 'Female Serum', value: 30, source: 'Raid Drop' },
+  { id: 'demon_glaze', name: 'Demon Glaze', value: 25, source: 'Blade Burst Crate' },
+  { id: 'black_flash', name: 'Black Flash', value: 25, source: 'Perk' },
+  { id: 'rosepetal', name: 'RosePetal', value: 25, source: 'Blade Burst Crate' },
+  { id: 'christmas_sheath', name: 'Christmas Sheath', value: 25, source: 'Christmas Event' },
+  { id: 'blood_letting', name: 'Blood letting', value: 25, source: 'Blade Burst Crate' },
+  { id: 'pointy_candy_cane', name: 'Pointy Candy Cane Blades', value: 25, source: 'Christmas Event' },
+  { id: 'gojo_blindfold', name: 'Gojo Blindfold', value: 25, source: 'JJK Crate' },
+  { id: 'founder_blessing', name: 'Founder Blessing', value: 25, source: 'Perk' },
+  { id: 'archer_attire', name: 'Archer Attire', value: 25, source: 'Fate Crate' },
+  { id: 'starry_night', name: 'Starry Night', value: 25, source: 'Blade Burst Crate' },
+  { id: 'christmas_gear', name: 'Christmas Gear', value: 25, source: 'Christmas Event' },
+  { id: 'gae_bolg', name: 'Gae Bolg', value: 25, source: 'Fate Crate' },
+  { id: 'aincrad_blade', name: 'Aincrad Blade', value: 25, source: 'Battle Pass (Season 2)' },
+  { id: 'aincrad_sheath', name: 'Aincrad Sheath', value: 25, source: 'Battle Pass (Season 2)' },
+  { id: 'immortal', name: 'Immortal', value: 25, source: 'Perk' },
+  { id: 'aincrad_gear', name: 'Aincrad Gear', value: 25, source: 'Battle Pass (Season 2)' },
+  { id: 'katana', name: 'Katana', value: 25, source: 'JJK Crate' },
+  { id: 'kengo', name: 'Kengo', value: 23, source: 'Perk' },
+  { id: 'jotunn_blade', name: 'Jotunn Blade', value: 20, source: 'Raid Drop' },
+  { id: 'lightning_breath', name: 'Lightning Breath', value: 20, source: 'Demon Slayer Crate' },
+  { id: 'font_of_inspiration', name: 'Font Of Inspiration', value: 20, source: 'Perk' },
+  { id: 'nightfall_aura', name: 'Nightfall Aura', value: 20, source: 'Achievement Exclusive' },
+  { id: 'ski_mask', name: 'Ski Mask', value: 20, source: 'Halloween Event' },
+  { id: 'witch_hat', name: 'Witch Hat', value: 20, source: 'Halloween Event' },
+  { id: '12fps', name: '12FPS', value: 20, source: 'GP' },
+  { id: 'elf_hat', name: 'Elf Hat', value: 20, source: 'Christmas Event' },
+  { id: 'santa_hat', name: 'Santa Hat', value: 20, source: 'Christmas Event' },
+  { id: 'jack_o_lantern', name: 'Jack O Lantern', value: 20, source: 'Halloween Event' },
+  { id: 'axe_head', name: 'Axe Head', value: 20, source: 'Halloween Event' },
+  { id: 'luck_boost_2hr', name: 'Luck Boost 2HR', value: 20, source: 'Market' },
+  { id: 'snowman_head', name: 'SnowmanHead', value: 20, source: 'Christmas Event' },
+  { id: 'reiss', name: 'Reiss', value: 20, source: 'Family' },
+  { id: 'armour_serum', name: 'Armour Serum', value: 20, source: 'Raid Drop' },
+  { id: 'maximum_firepower', name: 'Maximum Firepower', value: 20, source: 'Perk' },
+  { id: 'flame_breath', name: 'Flame Breath', value: 20, source: 'Demon Slayer Crate' },
+  { id: 'kyokokukamusari', name: 'Kyokokukamusari', value: 20, source: 'Demon Slayer Crate' },
+  { id: 'rengoku_attire', name: 'Rengoku Attire', value: 20, source: 'Demon Slayer Crate' },
+  { id: 'green_aura_flies', name: 'Green Aura With Flies', value: 20, source: 'Halloween Event' },
+  { id: 'adaptation', name: 'Adaptation', value: 20, source: 'Perk' },
+  { id: 'attack_serum', name: 'Attack Serum', value: 20, source: 'Raid Drop' },
+  { id: 'explosive_fortune', name: 'Explosive Fortune', value: 19, source: 'Perk' },
+  { id: 'tatsujin', name: 'Tatsujin', value: 18, source: 'Perk' },
+  { id: 'soul_feed', name: 'Soul Feed', value: 18, source: 'Perk' },
+  { id: 'easter_bunny_attire', name: 'EasterBunnyAttire', value: 15, source: 'Easter Event' },
+  { id: 'scars', name: 'Scars', value: 15, source: 'Artifact' },
+  { id: 'boar_mask', name: 'Boar Mask', value: 15, source: 'Demon Slayer Crate' },
+  { id: 'pulsar_spear_equipment', name: 'Pulsar Spear Equipment', value: 15, source: 'Battle Pass (Season 3)' },
+  { id: 'pulsar_spear_gear', name: 'Pulsar Spear Gear', value: 15, source: 'Battle Pass (Season 3)' },
+  { id: 'onikiri_gear', name: 'Onikiri Gear', value: 15, source: 'Raid Drop' },
+  { id: 'onikiri_blade', name: 'Onikiri Blade', value: 15, source: 'Raid Drop' },
+  { id: 'onikiri_sheath', name: 'Onikiri Sheath', value: 15, source: 'Raid Drop' },
+  { id: 'bunny_ears', name: 'BunnyEars', value: 15, source: 'Easter Event' },
+  { id: 'farmer_attire', name: 'Farmer Attire', value: 15, source: 'Easter Event' },
+  { id: 'rabbit_foot_necklace', name: 'Rabbit Foot Necklace', value: 15, source: 'Easter Event' },
+  { id: 'carrot', name: 'Carrot', value: 15, source: 'Easter Event' },
+  { id: 'easter_spear_gear', name: 'Easter Spear Gear', value: 15, source: 'Easter Event' },
+  { id: 'moai_head', name: 'MoaiHead', value: 15, source: 'Easter Event' },
+  { id: 'cracked_shell', name: 'Cracked Shell', value: 15, source: 'Easter Event' },
+  { id: 'easter_spear_equipment', name: 'Easter Spear Equipment', value: 15, source: 'Easter Event' },
+  { id: 'gold_boost_2hr', name: 'Gold Boost 2HR', value: 14, source: 'Market' },
+  { id: 'scarf', name: 'Scarf', value: 13, source: 'Artifact' },
+  { id: 'cookie', name: 'Cookie', value: 10, source: 'Christmas Event' },
+  { id: 'gingerbread_blades', name: 'Gingerbread Blades', value: 10, source: 'Christmas Event' },
+  { id: 'heavenly_restriction', name: 'Heavenly Restriction', value: 10, source: 'Perk' },
+  { id: 'pulsar_blade', name: 'Pulsar Blade', value: 10, source: 'Battle Pass (Season 3)' },
+  { id: 'pulsar_gear', name: 'Pulsar Gear', value: 10, source: 'Battle Pass (Season 3)' },
+  { id: 'hot_chocolate', name: 'Hot Chocolate', value: 10, source: 'Christmas Event' },
+  { id: 'radiant_headband', name: 'Radiant Headband', value: 10, source: 'Mission Exclusives' },
+  { id: 'everlasting_flame', name: 'Everlasting Flame', value: 10, source: 'Perk' },
+  { id: 'jetblack_sword', name: 'JetBlack Sword', value: 10, source: 'JJK Crate' },
+  { id: 'pulsar_sheath', name: 'Pulsar Sheath', value: 10, source: 'Battle Pass (Season 3)' },
+  { id: 'kisuke_hat', name: 'Kisuke Hat', value: 10, source: 'Bleach Crate' },
+  { id: 'kenny_attire', name: 'Kenny Attire', value: 10, source: 'Scout Fashion Crate' },
+  { id: 'arlert', name: 'Arlert', value: 10, source: 'Family' },
+  { id: 'leonhart', name: 'Leonhart', value: 10, source: 'Family' },
+  { id: 'quincy_hat', name: 'Quincy Hat', value: 10, source: 'Bleach Crate' },
+  { id: 'demonic_gaze', name: 'Demonic Gaze', value: 10, source: 'Blade Burst Crate' },
+  { id: 'toshiro_scarf', name: 'Toshiro Scarf', value: 10, source: 'Bleach Crate' },
+  { id: 'exp_boost_2hr', name: 'EXP Boost 2HR', value: 7, source: 'Market' },
+  { id: 'female_shard', name: 'Female Shard', value: 6, source: 'Raid Drop' },
+  { id: 'finger', name: 'Finger', value: 5, source: 'Family' },
+  { id: 'ksaver', name: 'Ksaver', value: 5, source: 'Family' },
+  { id: 'zoe', name: 'Zoe', value: 5, source: 'Family' },
+  { id: 'sunforge_spear_equipment', name: 'Sunforge Spear Equipment', value: 5, source: 'Battle Pass (Season 3)' },
+  { id: 'kitsune_mask', name: 'kitsuneMask', value: 5, source: 'Mission Exclusives' },
+  { id: 'headband', name: 'Headband', value: 5, source: 'Achievement Exclusive' },
+  { id: 'bladed_gauntlet', name: 'Bladed Gauntlet', value: 5, source: 'Achievement Exclusive' },
+  { id: 'crown', name: 'Crown', value: 5, source: 'Achievement Exclusive' },
+  { id: 'sunforge_spear_gear', name: 'Sunforge Spear Gear', value: 5, source: 'Battle Pass (Season 3)' },
+  { id: 'armour_shard', name: 'Armour Shard', value: 5, source: 'Raid Drop' },
+  { id: 'tybur', name: 'Tybur', value: 5, source: 'Family' },
+  { id: 'galliard', name: 'Galliard', value: 5, source: 'Family' },
+  { id: 'braun', name: 'Braun', value: 5, source: 'Family' },
+  { id: 'sunforge_blade', name: 'Sunforge Blade', value: 3, source: 'Battle Pass (Season 3)' },
+  { id: 'sunforge_gear', name: 'Sunforge Gear', value: 3, source: 'Battle Pass (Season 3)' },
+  { id: 'attack_shard', name: 'Attack Shard', value: 3, source: 'Raid Drop' },
+  { id: 'prestige_scroll', name: 'Prestige Scroll', value: 3, source: 'Market' },
+  { id: 'sword_of_rupture', name: 'Sword Of Rupture', value: 3, source: 'Fate Crate' },
+  { id: 'demon_slayer_crate', name: 'Demon Slayer', value: 3, source: 'Crates' },
+  { id: 'blade_burst_crate', name: 'Blade Burst Crate', value: 3, source: 'Crates' },
+  { id: 'fate_crate', name: 'Fate Crate', value: 3, source: 'Crates' },
+  { id: 'sunforge_sheath', name: 'Sunforge Sheath', value: 3, source: 'Battle Pass (Season 3)' },
+  { id: 'raid_aura', name: 'Raid Aura', value: 2, source: 'Raid Drop' },
+  { id: 'dripyy_glasses', name: 'Dripyy Glasses', value: 2, source: 'Achievement Exclusive' },
+  { id: 'onyx_blade', name: 'Onyx Blade', value: 2, source: 'Achievement Exclusive' },
+  { id: 'onyx_sheath', name: 'Onyx Sheath', value: 2, source: 'Achievement Exclusive' },
+  { id: 'saber_attire', name: 'Saber Attire', value: 1, source: 'Fate Crate' },
+  { id: 'ninja_attire', name: 'Ninja Attire', value: 1, source: 'Scout Fashion Crate' },
+  { id: 'shinobu_attire', name: 'Shinobu Attire', value: 1, source: 'Demon Slayer Crate' },
+  { id: 'grimmjow_mask', name: 'Grimmjow Mask', value: 1, source: 'Mission Exclusives' },
+  { id: 'water_breath', name: 'Water Breath', value: 1, source: 'Demon Slayer Crate' },
+  { id: 'tanjiro_attire', name: 'Tanjiro Attire', value: 1, source: 'Demon Slayer Crate' },
+  { id: 'bikini_attire', name: 'Bikini Attire', value: 1, source: 'Fate Crate' },
+  { id: 'hoddie', name: 'Hoddie', value: 1, source: 'Artifact' },
+  { id: 'kenny_hat', name: 'Kenny Hat', value: 1, source: 'Scout Fashion Crate' },
+  { id: 'scour_fashion_crate', name: 'Scour Fashion Crate', value: 1, source: 'Crates' },
+  { id: 'blood_sickle', name: 'Blood Sickle', value: 1, source: 'Demon Slayer Crate' },
+  { id: 'key', name: 'Key', value: 1, source: 'Market' },
+  { id: 'blood_art', name: 'Blood Art', value: 1, source: 'Demon Slayer Crate' },
+  { id: 'young_reiner_attire', name: 'Young Reiner Attire', value: 1, source: 'Artifact' },
+  { id: 'gojo_glassess', name: 'Gojo Glassess', value: 1, source: 'JJK Crate' },
+  { id: 'warior_medalilion', name: 'Warior Medalilion', value: 1, source: 'Mission Exclusives' },
 ];
 
 // --- STATE ---
@@ -29,8 +226,6 @@ function renderSlots(side) {
   state[side].forEach((item, i) => {
     const slot = document.createElement('div');
     slot.className = 'calc-slot' + (item ? ' calc-slot--filled' : ' calc-slot--empty');
-    slot.dataset.side = side;
-    slot.dataset.index = i;
 
     if (item) {
       slot.innerHTML = `
@@ -42,12 +237,9 @@ function renderSlots(side) {
       slot.innerHTML = `<span class="slot-plus">+</span>`;
       slot.addEventListener('click', () => openPicker(side, i));
     }
-
     container.appendChild(slot);
   });
-
-  const filled = state[side].filter(Boolean).length;
-  document.getElementById(side + 'Count').textContent = filled;
+  document.getElementById(side + 'Count').textContent = state[side].filter(Boolean).length;
 }
 
 // --- OPEN / CLOSE PICKER ---
@@ -58,7 +250,7 @@ function openPicker(side, index) {
   filterItems();
   document.getElementById('itemPicker').classList.add('open');
   document.getElementById('pickerOverlay').classList.add('open');
-  document.getElementById('pickerSearch').focus();
+  setTimeout(() => document.getElementById('pickerSearch').focus(), 50);
 }
 
 function closePicker() {
@@ -72,16 +264,6 @@ function closePicker() {
 function filterItems() {
   const query = document.getElementById('pickerSearch').value.toLowerCase();
   const list = document.getElementById('pickerList');
-
-  if (ITEMS.length === 0) {
-    list.innerHTML = `
-      <div class="picker-empty">
-        <span>No items added yet.</span>
-        <small>Items will appear here once the value list is populated.</small>
-      </div>`;
-    return;
-  }
-
   const filtered = ITEMS.filter(item => item.name.toLowerCase().includes(query));
 
   if (filtered.length === 0) {
@@ -93,9 +275,9 @@ function filterItems() {
     <div class="picker-item" onclick="selectItem('${item.id}')">
       <div class="picker-item-info">
         <span class="picker-item-name">${item.name}</span>
-        <span class="picker-item-rarity rarity--${(item.rarity || '').toLowerCase()}">${item.rarity || ''}</span>
+        <span class="picker-item-source">${item.source}</span>
       </div>
-      <span class="picker-item-value">${item.value.toLocaleString()}</span>
+      <span class="picker-item-value">🔑 ${item.value.toLocaleString()}</span>
     </div>
   `).join('');
 }
@@ -103,7 +285,7 @@ function filterItems() {
 // --- SELECT ITEM ---
 function selectItem(itemId) {
   const item = ITEMS.find(i => i.id === itemId);
-  if (!item || state.activeSide === null || state.activeSlot === null) return;
+  if (!item || state.activeSide === null) return;
   state[state.activeSide][state.activeSlot] = item;
   renderSlots(state.activeSide);
   updateResult();
@@ -126,9 +308,9 @@ function clearSide(side) {
 
 // --- UPDATE RESULT ---
 function updateResult() {
-  const youVal  = state.you.reduce((sum, i)  => sum + (i ? i.value : 0), 0);
-  const themVal = state.them.reduce((sum, i) => sum + (i ? i.value : 0), 0);
-  const diff = youVal - themVal;
+  const youVal  = state.you.reduce((s, i)  => s + (i ? i.value : 0), 0);
+  const themVal = state.them.reduce((s, i) => s + (i ? i.value : 0), 0);
+  const diff = themVal - youVal; // positive = you receive more
 
   document.getElementById('youTotalVal').textContent  = youVal.toLocaleString();
   document.getElementById('themTotalVal').textContent = themVal.toLocaleString();
@@ -136,23 +318,20 @@ function updateResult() {
   const verdictText = document.getElementById('verdictText');
   const verdictDiff = document.getElementById('verdictDiff');
   const result      = document.getElementById('calcResult');
-
   result.classList.remove('result--win', 'result--lose', 'result--even');
 
   if (youVal === 0 && themVal === 0) {
     verdictText.textContent = '—';
-    verdictDiff.textContent = '';
+    verdictDiff.textContent = 'Add items to both sides';
   } else if (diff === 0) {
     verdictText.textContent = 'Even Trade';
     verdictDiff.textContent = 'Perfectly balanced';
     result.classList.add('result--even');
-  } else if (diff < 0) {
-    // you get more value than you give → win
+  } else if (diff > 0) {
     verdictText.textContent = '✓ Good for you';
     verdictDiff.textContent = `+${Math.abs(diff).toLocaleString()} in your favor`;
     result.classList.add('result--win');
   } else {
-    // you give more than you get → lose
     verdictText.textContent = '✗ Bad for you';
     verdictDiff.textContent = `−${Math.abs(diff).toLocaleString()} against you`;
     result.classList.add('result--lose');
