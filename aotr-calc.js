@@ -203,14 +203,32 @@ const ITEMS = [
   { id: 'gojo_glassess', name: 'Gojo Glassess', value: 1, source: 'JJK Crate' },
   { id: 'warior_medalilion', name: 'Warior Medalilion', value: 1, source: 'Mission Exclusives' },
 ];
-
 // --- STATE ---
+// Each slot: null  OR  { item, qty }
 const state = {
   you:  Array(9).fill(null),
   them: Array(9).fill(null),
   activeSide: null,
   activeSlot: null,
 };
+
+// --- QTY LIMITS by category ---
+function getMaxQty(item) {
+  const name = item.name.toLowerCase();
+  const src  = (item.source || '').toLowerCase();
+  // Shards: up to 6
+  if (name.includes('shard')) return 6;
+  // Scrolls: up to 30
+  if (name.includes('scroll')) return 30;
+  // Keys: up to 30
+  if (name === 'key' || name.includes('crate')) return 30;
+  // Serums: up to 10
+  if (name.includes('serum')) return 10;
+  // Boosts: up to 20
+  if (name.includes('boost')) return 20;
+  // Default: 1
+  return 1;
+}
 
 // --- INIT ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -223,23 +241,69 @@ document.addEventListener('DOMContentLoaded', () => {
 function renderSlots(side) {
   const container = document.getElementById(side + 'Slots');
   container.innerHTML = '';
-  state[side].forEach((item, i) => {
-    const slot = document.createElement('div');
-    slot.className = 'calc-slot' + (item ? ' calc-slot--filled' : ' calc-slot--empty');
 
-    if (item) {
+  state[side].forEach((entry, i) => {
+    const slot = document.createElement('div');
+    slot.className = 'calc-slot' + (entry ? ' calc-slot--filled' : ' calc-slot--empty');
+
+    if (entry) {
+      const { item, qty } = entry;
+      const maxQty = getMaxQty(item);
+      const totalVal = item.value * qty;
+      const showQty = maxQty > 1;
+
       slot.innerHTML = `
-        <div class="slot-item-name">${item.name}</div>
-        <div class="slot-item-value">${item.value.toLocaleString()}</div>
         <button class="slot-remove" onclick="removeItem('${side}', ${i})">✕</button>
+        <div class="slot-item-name">${item.name}</div>
+        <div class="slot-item-value">${totalVal.toLocaleString()}</div>
+        ${showQty ? `
+        <div class="slot-qty-ctrl" onclick="event.stopPropagation()">
+          <button class="qty-btn" onclick="changeQty('${side}', ${i}, -1)" ${qty <= 1 ? 'disabled' : ''}>−</button>
+          <input
+            class="qty-input"
+            type="number"
+            min="1"
+            max="${maxQty}"
+            value="${qty}"
+            onchange="setQty('${side}', ${i}, this.value)"
+            onclick="this.select()"
+          />
+          <button class="qty-btn" onclick="changeQty('${side}', ${i}, 1)" ${qty >= maxQty ? 'disabled' : ''}>+</button>
+        </div>
+        ` : ''}
       `;
     } else {
       slot.innerHTML = `<span class="slot-plus">+</span>`;
       slot.addEventListener('click', () => openPicker(side, i));
     }
+
     container.appendChild(slot);
   });
-  document.getElementById(side + 'Count').textContent = state[side].filter(Boolean).length;
+
+  const filled = state[side].filter(Boolean).length;
+  document.getElementById(side + 'Count').textContent = filled;
+}
+
+// --- QTY CONTROLS ---
+function changeQty(side, index, delta) {
+  const entry = state[side][index];
+  if (!entry) return;
+  const max = getMaxQty(entry.item);
+  entry.qty = Math.min(max, Math.max(1, entry.qty + delta));
+  renderSlots(side);
+  updateResult();
+}
+
+function setQty(side, index, rawVal) {
+  const entry = state[side][index];
+  if (!entry) return;
+  const max = getMaxQty(entry.item);
+  let val = parseInt(rawVal, 10);
+  if (isNaN(val) || val < 1) val = 1;
+  if (val > max) val = max;
+  entry.qty = val;
+  renderSlots(side);
+  updateResult();
 }
 
 // --- OPEN / CLOSE PICKER ---
@@ -271,22 +335,27 @@ function filterItems() {
     return;
   }
 
-  list.innerHTML = filtered.map(item => `
-    <div class="picker-item" onclick="selectItem('${item.id}')">
-      <div class="picker-item-info">
-        <span class="picker-item-name">${item.name}</span>
-        <span class="picker-item-source">${item.source}</span>
+  list.innerHTML = filtered.map(item => {
+    const max = getMaxQty(item);
+    const qtyBadge = max > 1 ? `<span class="picker-qty-badge">×${max} max</span>` : '';
+    return `
+      <div class="picker-item" onclick="selectItem('${item.id}')">
+        <div class="picker-item-info">
+          <span class="picker-item-name">${item.name}</span>
+          <span class="picker-item-source">${item.source}</span>
+          ${qtyBadge}
+        </div>
+        <span class="picker-item-value">🔑 ${item.value.toLocaleString()}</span>
       </div>
-      <span class="picker-item-value">🔑 ${item.value.toLocaleString()}</span>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
 // --- SELECT ITEM ---
 function selectItem(itemId) {
   const item = ITEMS.find(i => i.id === itemId);
   if (!item || state.activeSide === null) return;
-  state[state.activeSide][state.activeSlot] = item;
+  state[state.activeSide][state.activeSlot] = { item, qty: 1 };
   renderSlots(state.activeSide);
   updateResult();
   closePicker();
@@ -308,9 +377,9 @@ function clearSide(side) {
 
 // --- UPDATE RESULT ---
 function updateResult() {
-  const youVal  = state.you.reduce((s, i)  => s + (i ? i.value : 0), 0);
-  const themVal = state.them.reduce((s, i) => s + (i ? i.value : 0), 0);
-  const diff = themVal - youVal; // positive = you receive more
+  const youVal  = state.you.reduce((s, e)  => s + (e ? e.item.value * e.qty : 0), 0);
+  const themVal = state.them.reduce((s, e) => s + (e ? e.item.value * e.qty : 0), 0);
+  const diff = themVal - youVal;
 
   document.getElementById('youTotalVal').textContent  = youVal.toLocaleString();
   document.getElementById('themTotalVal').textContent = themVal.toLocaleString();
