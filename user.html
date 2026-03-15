@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — WHUB</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="auth.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">W<span>HUB</span></a>
+    <div class="nav-right">
+     
+    </div>
+  </nav>
+
+  <!-- LOADING -->
+  <div class="auth-loading" id="pageLoading">
+    <div class="auth-loading-spinner"></div>
+  </div>
+
+  <!-- NOT FOUND -->
+  <div class="page-wrapper" id="notFound" style="display:none">
+    <div style="text-align:center;padding:160px 20px 80px">
+      <div style="margin-bottom:16px;color:var(--text-dim)"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+      <h2 style="font-family:var(--font-display);font-size:1.8rem;margin-bottom:10px">User not found</h2>
+      <p style="color:var(--text-muted);margin-bottom:24px">This profile doesn't exist.</p>
+      <a href="index.html" style="color:var(--accent-roblox)">← Back to Home</a>
+    </div>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="page-wrapper" id="profilePage" style="display:none">
+
+    <!-- HERO -->
+    <div class="profile-hero">
+      <div class="profile-hero-bg"></div>
+      <div class="profile-hero-inner">
+        <div class="profile-avatar-wrap">
+          <div class="profile-avatar" id="pubAvatar">W</div>
+          <div class="profile-avatar-ring"></div>
+        </div>
+        <div class="profile-info">
+          <div class="profile-role-badge" id="pubRole">Member</div>
+          <h1 class="profile-username" id="pubUsername">—</h1>
+          <p class="profile-bio" id="pubBio"></p>
+          <div class="profile-socials" id="pubSocials"></div>
+          <p class="profile-joined" id="pubJoined"></p>
+        </div>
+        <div class="profile-actions" id="pubActions"></div>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="profile-stats-row">
+      <div class="profile-stat-card">
+        <span class="pstat-val" id="statTrades">—</span>
+        <span class="pstat-label">Trades Posted</span>
+      </div>
+      <div class="profile-stat-card">
+        <span class="pstat-val" id="statFeedback">—</span>
+        <span class="pstat-label">Feedback Posts</span>
+      </div>
+      <div class="profile-stat-card">
+        <span class="pstat-val" id="statJoinedShort">—</span>
+        <span class="pstat-label">Member Since</span>
+      </div>
+      <div class="profile-stat-card">
+        <span class="pstat-val pstat-val--role" id="statRole">—</span>
+        <span class="pstat-label">Role</span>
+      </div>
+    </div>
+
+    <!-- TRADES -->
+    <div class="profile-section">
+      <div class="profile-section-label">// TRADES</div>
+      <div id="pubTradesList" class="profile-activity-list">
+        <div class="profile-activity-loading"><div class="auth-loading-spinner"></div></div>
+      </div>
+    </div>
+
+    <!-- FEEDBACK -->
+    <div class="profile-section">
+      <div class="profile-section-label">// FEEDBACK POSTS</div>
+      <div id="pubFeedbackList" class="profile-activity-list">
+        <div class="profile-activity-loading"><div class="auth-loading-spinner"></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer-logo">W<span>HUB</span></div>
+    <p class="footer-text">Built for the community, by the community.</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script type="module" src="user.js"></script>
+</body>
+</html>
